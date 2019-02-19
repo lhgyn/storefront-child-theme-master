@@ -129,6 +129,11 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 	#menu-footer-portugues a:hover{ color:  <?=$primary_color?> !important; }
 
 
+	div.wpcf7 label{
+		width: 100% !important
+	}
+
+
 	.detalhes {
 	    position: absolute;
 	    left: 0;
