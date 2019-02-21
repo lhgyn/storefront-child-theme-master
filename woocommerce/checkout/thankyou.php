@@ -86,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			      var r = document.createElement("script");
 			        r.type = "text/javascript";
-			        r.innerHTML = "gtag(\"event\", \"conversion\", { \"send_to\": \"<?php echo get_field('tag_pag_obrigado') ?>\", \"transaction_id\": \"\" });";
+			        r.innerHTML = "gtag(\"event\", \"conversion\", { \"send_to\": \"<?php echo get_field('tag_pag_obrigado', 'option') ?>\", \"transaction_id\": \"\" });";
 			        $("head").append(r);
 			  });
 			</script>
