@@ -90,7 +90,7 @@ if(is_page(13)):
 
     <div class="row">
   		<div class="col-md-12" style="color: #848484; font-size: 13px;">
-  		 	© 2018 Androzene. Todos direitos reservados.
+  		 	&copy; <?php echo date("Y")." ".get_bloginfo(); ?>. Todos direitos reservados.
       </div>
     </div>
   </div>
