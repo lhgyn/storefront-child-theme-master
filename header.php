@@ -37,14 +37,20 @@
     <?php get_template_part( 'style', 'custom' ); ?>
     <!-- Fim da Biblioteca do site -->
 
-    <!-- Global site tag (gtag.js) - Google Ads: 844795302 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_field('tag_global', 'option'); ?>"></script>
-    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '<?php echo get_field("tag_global", "option"); ?>');
-    </script>
-    <!-- Global site tag (gtag.js) - Google Ads: 833359024 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_field('tag_global_2', 'option'); ?>"></script>
-    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '<?php echo get_field("tag_global_2", "option"); ?>');
-    </script>
+   
+    <!-- //////////////////////////////////////////////////////////////////
+    ////////////// PIXEL GOOGLE ANALYTICS
+    ////////////////////////////////////// -->
+    <?php if(have_rows('google_analytcs', 'option')): ?>
+      <?php while(have_rows('google_analytcs', 'option')): ?>
+        <?php the_row(); ?>
+          <!-- Global site tag (gtag.js) - Google Ads: <?php echo get_sub_field('tag_name', 'option') .' - '. get_sub_field('tag_global', 'option'); ?> -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_sub_field('tag_global', 'option'); ?>"></script>
+          <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '<?php echo get_sub_field("tag_global", "option"); ?>');
+          </script>
+
+      <?php endwhile; ?>
+    <?php endif; ?>
 
   </head>
 

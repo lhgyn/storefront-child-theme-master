@@ -84,15 +84,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<script>
 			  jQuery(document).ready(function($) {
 
-			      var r = document.createElement("script");
-			        r.type = "text/javascript";
-			        r.innerHTML = "gtag(\"event\", \"conversion\", { \"send_to\": \"<?php echo get_field('tag_pag_obrigado', 'option') ?>\", \"transaction_id\": \"\" });";
-			        $("head").append(r);
+			      <?php if(have_rows('google_analytcs', 'option')): ?>
+			      	<?php while(have_rows('google_analytcs', 'option')): ?>
+			      		<?php the_row(); ?>
 
-			      var s = document.createElement("script");
-			        s.type = "text/javascript";
-			        s.innerHTML = "gtag(\"event\", \"conversion\", { \"send_to\": \"<?php echo get_field('tag_pag_obrigado_2', 'option') ?>\", \"transaction_id\": \"\" });";
-			        $("head").append(s);
+			      		var r = document.createElement("script");
+				        r.type = "text/javascript";
+				        r.innerHTML = "gtag(\"event\", \"conversion\", { \"send_to\": \"<?php echo get_sub_field('tag_thankyou', 'option') ?>\", \"transaction_id\": \"\" });";
+				        $("head").append(r);
+
+			      	<?php endwhile; ?>
+			      <?php endif; ?>
 			  });
 			</script>
 
