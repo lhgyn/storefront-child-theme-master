@@ -41,6 +41,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_field('tag_global', 'option'); ?>"></script>
     <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '<?php echo get_field("tag_global", "option"); ?>');
     </script>
+    <!-- Global site tag (gtag.js) - Google Ads: 833359024 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_field('tag_global_2', 'option'); ?>"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '<?php echo get_field("tag_global_2", "option"); ?>');
+    </script>
 
   </head>
 
