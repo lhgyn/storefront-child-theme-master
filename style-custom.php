@@ -149,5 +149,9 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 		clip-path: polygon(52% 50%, 0 0, 100% 0);
 	}
 
+	.big-text::before{
+		border-bottom: 2px solid <?=$primary_color?>;
+	}
+
 
 </style>
