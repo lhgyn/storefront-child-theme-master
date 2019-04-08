@@ -470,35 +470,50 @@
                                     <div class="product-image">
                                         <img src="<?php echo $variation['image']['url']; ?>">                    
                                      </div>
-                                        <div class="title">
-                                            <h3 class="product-title"><?php echo $frascos ?></h3>
-                                            <p>
-                                                <span class="product-short-desc"></span>
-                                            </p>
-                                        </div>
-                                        <div class="buy-now">
-                                            <p class="product woocommerce add_to_cart_inline "><del><span class="retail">Preço era: </span> <span class="amount">
-                                                R$ <?php echo number_format($regular_price, 2, ',', ' '); ?>
 
-                                            </span></del> <ins><span class="amount precofinal" style="white-space: nowrap; letter-spacing: 0px;">
-                                            R$ <?php echo number_format($min_price, 2, ',', ' '); ?>
-                                        </span></ins> <span class="save">Você economiza: <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">
-                                        R$ <?php echo number_format($economia, 2, ',', ' '); ?>
-                                    </span>
-                                </span>
-                            </span>
-                        </p>
-                        <?php  $purchase_status = get_field('enable_disable_purchase', 'option'); ?>
-                        <?php if( $purchase_status[0] == 'enable'): ?>
-                            <a href="<?= $link_comprar ?>">
-                        <?php else: ?>
-                            <a onclick="alert('Infelizmente, estamos sem estoque!')">
-                        <?php endif; ?>
-                        <button  id="form-cad-deliveri" type="submit" class="btn btn-secondary btn-buy add_to_cart_button product_type_simple">
-                            <strong>COMPRAR JÁ</strong>
-                        </button>
-                        </a>
-                    </div>
+                                    <div class="title">
+                                        <h3 class="product-title"><?php echo $frascos ?></h3>
+                                        <p>
+                                            <span class="product-short-desc"></span>
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="buy-now">
+                                        <p class="product woocommerce add_to_cart_inline ">
+                                            <del>
+                                                <span class="retail">Preço era: </span>
+                                                <span class="amount">
+                                                    R$ <?php echo number_format($regular_price, 2, ',', ' '); ?>
+                                                </span>
+                                            </del>
+                                            <ins>
+                                                <span class="amount" style="white-space: nowrap; letter-spacing: 0px;">
+                                                <?php
+                                                    $card_parcels = get_field('parcelamento', 'option');
+                                                    $valor = $min_price / $card_parcels;
+                                                    echo $card_parcels; ?> R$ <?php echo  number_format( $valor, 2, ',', ' ' )
+                                                ?>
+                                                </span>
+                                            </ins>
+                                            <span class="save">Você economiza:
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <span class="woocommerce-Price-currencySymbol">
+                                                        R$ <?php echo number_format($economia, 2, ',', ' '); ?>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </p>
+                                        <?php  $purchase_status = get_field('enable_disable_purchase', 'option'); ?>
+                                        <?php if( $purchase_status[0] == 'enable'): ?>
+                                            <a href="<?= $link_comprar ?>">
+                                        <?php else: ?>
+                                            <a onclick="alert('Infelizmente, estamos sem estoque!')">
+                                        <?php endif; ?>
+                                        <button  id="form-cad-deliveri" type="submit" class="btn btn-secondary btn-buy add_to_cart_button product_type_simple">
+                                            <strong>COMPRAR JÁ</strong>
+                                        </button>
+                                        </a>
+                                    </div>
                     <div class="shipping">ENVIO IMEDIATO</div>
                 </div>
             </div>

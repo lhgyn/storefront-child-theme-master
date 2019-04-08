@@ -21,10 +21,9 @@ if(is_page(13)):
 <?php if ( is_order_received_page()): ?>
 
 <!-- parcelamento pagina thank you -->
-
-<script type="text/javascript">
+<script type="text/javascript">  
   $( document ).ready(function(){
-    parcelas = $('.woocommerce-message span').text().slice(-3);
+    parcelas = $('#pagarme-installments option:last').val(); //$('.woocommerce-message span').text().slice(-3);
     parcelas = parseFloat(parcelas.charAt(0));
     if (parcelas != 1) {
     $(".amount").each( function() {
@@ -54,11 +53,12 @@ if(is_page(13)):
 
 <script type="text/javascript">
   $( document ).ajaxComplete(function(){
+    parcelas = $('#pagarme-installments option:last').val();
     $(".amount").each( function() {
-      var real = parseFloat($(this).text().replace('R$', '').replace(',', '.')) / 6;
+      var real = parseFloat($(this).text().replace('R$', '').replace(',', '.')) / parcelas;
       if (real > 1) {
 
-        $(this).html('6x de &nbsp;&nbsp;&nbsp; R$ ' + real.toFixed(2).replace('.', ','));
+        $(this).html(parcelas+'x de &nbsp;&nbsp;&nbsp; R$ ' + real.toFixed(2).replace('.', ','));
       }
     });
   });
@@ -97,9 +97,10 @@ if(is_page(13)):
 </footer>
 <script type="text/javascript">
   $( document ).ready(function(){
+    parcelas = $('#pagarme-installments option:last').val();
     $(".precofinal").each( function() {
-       var real = parseFloat($(this).text().replace('R$', '').replace(',', '.')) / 6;
-       $(this).html('6x R$ ' + real.toFixed(2).replace('.', ','));
+       var real = parseFloat($(this).text().replace('R$', '').replace(',', '.')) / parcelas;
+       $(this).html(parcelas+'x R$ ' + real.toFixed(2).replace('.', ','));
       });
   });
 </script>

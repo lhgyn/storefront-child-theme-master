@@ -171,6 +171,11 @@ function woocommerce_add_gift_box() {
         $('#add_gift_box').click(function(){
             jQuery('body').trigger('update_checkout');
         });
+
+        var taxa_garantia = "<?php echo get_field('garantia_custo_extra', 'option'); ?>"; //pega o valor do custo extra no custom fields - customizações do thema 
+        var parcelas = $('#pagarme-installments option:last').val();
+        var calc = (parseFloat(taxa_garantia) / parcelas); calc = calc.toFixed(2).replace('.', ',');
+        $('#extra-cost-label').html('Proteja sua entrega por apenas '+ parcelas +'x de R$ '+ calc);
     });
     </script>
     <?php
@@ -179,7 +184,7 @@ function woocommerce_add_gift_box() {
 
 add_action( 'woocommerce_cart_calculate_fees', 'woo_add_cart_fee' );
 function woo_add_cart_fee( $cart ){
-        if ( ! $_POST || ( is_admin() && ! is_ajax() ) ) {
+    if ( ! $_POST || ( is_admin() && ! is_ajax() ) ) {
         return;
     }
 
@@ -190,7 +195,7 @@ function woo_add_cart_fee( $cart ){
     }
 
     if (isset($post_data['add_gift_box'])) {
-        $extracost = 29.70; // not sure why you used intval($_POST['state']) ?
+        $extracost = get_field('garantia_custo_extra', 'option'); // not sure why you used intval($_POST['state']) ?
         WC()->cart->add_fee( 'Proteção de entrega', $extracost );
     }
 
@@ -328,7 +333,9 @@ function is_express_delivery( $order_id ){
 function action_woocommerce_review_order_before_payment(  ) {
     ?>
         <script>
-            $('#pagarme-installments option:contains("6x")').prop('selected',true);            
+            parcelas = $('#pagarme-installments option:last').val();
+            $('#pagarme-installments option:last').prop('selected',true);            
+            //$('#pagarme-installments option:contains("6x")').prop('selected',true);            
             // $("label[for='shipping_method_0_flat_rate4']").text(function(index,text){
             //     return text.replace(':','6x de ');
             // });

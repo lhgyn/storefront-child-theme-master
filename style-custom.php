@@ -154,12 +154,12 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 	}
 
 	.testimonials .testimony-title {
-    color: <?=$primary_color?>;
+    color: <?=$primary_color?> !important;
 	}
 	.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
-		color: <?=$primary_color?>;
-		border: 0;
-		outline: 0;
+		color: <?=$primary_color?> !important;
+		border: 0 !important;
+		outline: 0 !important;
 	}
 
 
