@@ -172,9 +172,9 @@ function woocommerce_add_gift_box() {
             jQuery('body').trigger('update_checkout');
         });
 
-        var taxa_garantia = "<?php echo get_field('garantia_custo_extra', 'option'); ?>"; //pega o valor do custo extra no custom fields - customizações do thema 
+        var taxa_garantia = "<?php echo number_format(get_field('garantia_custo_extra', 'option'), 2, '.', ','); ?>"; //pega o valor do custo extra no custom fields - customizações do thema 
         var parcelas = $('#pagarme-installments option:last').val();
-        var calc = (parseFloat(taxa_garantia) / parcelas); calc = calc.toFixed(2).replace('.', ',');
+        var calc = ( parseFloat(taxa_garantia) / parcelas ); calc = calc.toFixed(2).replace('.', ',');
         $('#extra-cost-label').html('Proteja sua entrega por apenas '+ parcelas +'x de R$ '+ calc);
     });
     </script>

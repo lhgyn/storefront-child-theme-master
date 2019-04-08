@@ -448,17 +448,18 @@
                 foreach ($product_variations as $variation): $i++; ?>
 
                     <!-- PEGA VALORES DE VARIANTES -->
-                    <?php   $regular_price = get_product_regular_price($variation['variation_id']);
-                    $min_price = get_product_min_price($variation['variation_id']);
-                    $descri_prod = get_product_descricao($variation['variation_id']);
-                    $frascos = get_product_ref($variation['variation_id']);
-                    $economia = $regular_price - $min_price;
-                    $link_comprar =  get_site_url() . '/?add-to-cart=' . ID_PRODUTO . "&variation_id=" . $variation['variation_id'];
+                    <?php
+                        $regular_price = get_product_regular_price($variation['variation_id']);
+                        $min_price = get_product_min_price($variation['variation_id']);
+                        $descri_prod = get_product_descricao($variation['variation_id']);
+                        $frascos = get_product_ref($variation['variation_id']);
+                        $economia = $regular_price - $min_price;
+                        $link_comprar =  get_site_url() . '/?add-to-cart=' . ID_PRODUTO . "&variation_id=" . $variation['variation_id'];
                     ?>
 
                     <!-- CHECA SE LOOP ESTÁ NO MAIS POPULAR -->
                     <?php if ($i % 2 === 0): ?>
-                        <div class="col-md-4 text-center">
+                        <div id="combo-block-<?=$i?>" class="col-md-4 text-center">
                             <div class="popular">
                                 MAIS POPULAR
                             </div>
