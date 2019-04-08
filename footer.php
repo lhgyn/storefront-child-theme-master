@@ -28,11 +28,11 @@ if(is_page(13)):
     if (parcelas != 1) {
     $(".amount").each( function() {
        var real = parseFloat($(this).text().replace('R$', '').replace(',', '.') / parcelas) ;
-       if (real > 1) {
-
-       $(this).html(parcelas + 'x de R$ ' + real.toFixed(2).replace('.', ','));
-     }
-      })};
+        if (real > 1) {
+          $(this).html(parcelas + 'x de R$ ' + real.toFixed(2).replace('.', ','));
+        }
+      })
+    };
   });
 </script>
 
