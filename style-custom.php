@@ -153,5 +153,14 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 		border-bottom: 2px solid <?=$primary_color?>;
 	}
 
+	.testimonials .testimony-title {
+    color: <?=$primary_color?>;
+	}
+	.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+		color: <?=$primary_color?>;
+		border: 0;
+		outline: 0;
+	}
+
 
 </style>
