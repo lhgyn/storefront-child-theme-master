@@ -12789,6 +12789,19 @@ li.payment_method_pagarme-credit-card .payment_box fieldset .form-row {
 #order_review > table > tfoot > tr.shipping > td::before {
 	display: none;
 }
+
+label[for="shipping_method_0_flat_rate3"]{ position: relative }
+label[for="shipping_method_0_flat_rate3"]::before{	
+    content: "";
+    position: absolute;
+    top: calc(50% - 10px);
+    left: 0px;
+    width: 10px;
+    height: 20px;
+    background: white;
+    display: inline-flex;
+    background: #fff;
+}
 label[for="shipping_method_0_flat_rate4"]{ position: relative }
 label[for="shipping_method_0_flat_rate4"]::before{	
     content: "";
