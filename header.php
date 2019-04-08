@@ -71,12 +71,12 @@
                   <span class="list-titles"><strong>Garantia de satisfação</strong></span>
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="display:grid; align-items:center;">
                 <?php 
                   $custom_logo_id = get_theme_mod( 'custom_logo' );
                   $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
                 ?>
-                <img src=<?php echo $image[0]; ?> alt="" class="img-responsive list-icon">
+                <img src=<?php echo $image[0]; ?> alt="" class="img-responsive list-icon" style="max-width: 200px;">
               </div>
               <div class="clearfix visible-xs-block"></div>
             </div>
