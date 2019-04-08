@@ -166,5 +166,9 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 		color: <?=$primary_color?> !important;
 	}
 
+	.section-bullets ul li:before{
+		color: <?=$primary_color?> !important;
+	}
+
 
 </style>
