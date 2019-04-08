@@ -33,9 +33,11 @@
 
             </div>
 
-            <div class="col-md-6 col-md-pull-6 col-lg-6 col-lg-pull-6 col-sm-6 col-sm-pull-6 content-img-bloco-1">
-                <a href="#order" class="page-scroll btn-buy"><img src=<?php echo get_stylesheet_directory_uri(); ?>/assets/imagens/frascos/frasco-sem-sombra.png alt="" class="img-responsive img-responsive-topo"></a>
-            </div>
+            <!-- <div class="col-md-6 col-md-pull-6 col-lg-6 col-lg-pull-6 col-sm-6 col-sm-pull-6 content-img-bloco-1">
+                <a href="#order" class="page-scroll btn-buy">
+                    <img src=<?php //echo get_stylesheet_directory_uri(); ?>/assets/imagens/frascos/frasco-sem-sombra.png alt="" class="img-responsive img-responsive-topo">
+                </a>
+            </div> -->
 
             <!-- CTA desktop Mobile -->
             <a href="#order" class="btn btn-secondary cta-1 cta-1-1 page-scroll btn-buy hidden-md hidden-lg">
@@ -65,7 +67,6 @@
     </section>
 <?php endif; ?>
 <!-- Fim do Bloco 2 -->
-
 <div class="detalhes detalhe-pixels_0"></div>
 
 <!-- Lista de beneficios 2 - Bloco 3 -->
@@ -81,7 +82,20 @@
                 <div class="col-md-12">
                     <p><?php the_field('s3_resumo'); ?></p>
                 </div>
+                <div class="col-md-12">
+                    <?php if( have_rows('s3_lista_beneficios') ): ?>
+                        <ul style="margin-top: 25px;">                            
+                            <?php while( have_rows('s3_lista_beneficios') ) : the_row();?>
+                                <li>
+                                    <strong><?php the_sub_field('titulo'); ?>: </strong>
+                                    <?php the_sub_field('texto'); ?>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
             </div>
+
 
             <!-- CTA -->
             <?php if( get_field('s2_texo_botao') ): ?>
@@ -106,6 +120,7 @@
     </section>
 <?php endif; ?>
 <!-- Fim da Lista de beneficios 2 - Bloco 3 -->
+
 
 <div class="detalhes detalhe-pixels_0" id="comofunciona"></div>
 
