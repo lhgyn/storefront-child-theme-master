@@ -198,7 +198,7 @@
 
                     <!-- CHECA SE LOOP ESTÁ NO MAIS POPULAR -->
                     <?php if ($i % 2 === 0): ?>
-                        <div class="col-md-4 text-center">
+                        <div id="combo-block-<?=$i?>" class="col-md-4 text-center">
                             <div class="popular">
                                 MAIS POPULAR
                             </div>
