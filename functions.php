@@ -333,27 +333,32 @@ function is_express_delivery( $order_id ){
 function action_woocommerce_review_order_before_payment(  ) {
     ?>
         <script>
-            parcelas = $('#pagarme-installments option:last').val();
-            $('#pagarme-installments option:last').prop('selected',true);            
-            //$('#pagarme-installments option:contains("6x")').prop('selected',true);            
-            // $("label[for='shipping_method_0_flat_rate4']").text(function(index,text){
-            //     return text.replace(':','6x de ');
-            // });
-            $("label[for='pagarme-card-holder-name']").html("Nome impresso no cartão");
-            $("#billing_address_2_field > label").html("Complemento");
+            /** */
+            /** atualiza para sem juros no select de parcelas */            
+            $("#pagarme-installments option").each(function(){
+                var str = $(this).text();
+                var find = '(';
+                var indexOfFirst = str.indexOf(find);
+                res = str.substring(indexOfFirst, -1);
+                //alert( res );
+                $(this).html(res+' (sem juros)');
+            });
+            
+            var parcelas = $('#pagarme-installments option:last').val(); // pega a maior parcela           
+            $('#pagarme-installments option:last').prop('selected',true); // marca a maior parcela como default
+            
+            $("label[for='pagarme-card-holder-name']").html("Nome impresso no cartão"); // muda o label  do campo nome do cartão
+            $("#billing_address_2_field > label").html("Complemento"); // muda o label do campo endereço 2 p/ Complemento
 
-           $('#pagarme-installments').change(function(event) {
-
-              var active = $(this, 'option:selected').val();
-              
+            $('#pagarme-installments').change(function(event) {
+              var active = $(this, 'option:selected').val();              
               $( document ).ajaxComplete(function(){
                 $("#pagarme-installments option").each(function(){
                     if ($(this).val() == active) {
-                        $(this).prop('selected',true);
+                        $(this).prop('selected', true);
                     }    
                 });
               });
-
             });
         </script>
     <?php

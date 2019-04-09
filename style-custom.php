@@ -162,7 +162,7 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 		outline: 0 !important;
 	}
 
-	#combo-block-2 span.amount{
+	#combo-block-2 ins span.amount{
 		color: <?=$primary_color?> !important;
 	}
 

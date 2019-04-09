@@ -11756,12 +11756,12 @@ body.page-id-13 > #page > div.container {
 }
 
 #page > header.scrolled > div.container > div > a {
-	margin-top: 13px;
+	margin-top: 7px;
 }
 
 #page > header.navbar.scrolled .navbar-brand {
-    width: 116px!important;
-    height: 40px!important;
+    width: 116px;
+    height: 40px;
 }
 
 #page > header > div.topbar {
@@ -11780,8 +11780,8 @@ body.page-id-13 > #page > div.container {
 	}
 	#page > header.navbar.scrolled .navbar-brand,
 	#page > header > div.container > div > a {
-	    width: 90px!important;
-	    margin-top: 13px!important;
+	    width: 90px;
+	    margin-top: 13px;
 	}
 }
 
@@ -12835,4 +12835,34 @@ a:focus, .button:focus, .button.alt:focus, button:focus, input[type="button"]:fo
 }
 a:focus, button:focus, input:focus, textarea:focus {
     outline: 1px solid #ddd;
+}
+
+
+@media only screen and (min-width: 1200px) {
+	#site-brand{
+		width: 160px !important;
+		height: 55px;
+		display: flex;
+		align-items: center;
+		margin-top: 12px;
+	}
+}
+@media only screen and (max-width: 1199px) {	
+	#site-brand{
+		width: 110px !important;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		margin-top: 8px !important;
+	}
+}
+
+@media only screen and (max-width: 991px) {	
+	#site-brand{
+		width: 110px !important;
+		height: 40px;
+		margin-top: 9px!important;
+		display: flex;
+		align-items: center;
+	}
 }

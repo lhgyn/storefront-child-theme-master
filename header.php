@@ -269,14 +269,16 @@
             $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
             ?>
 
-            <a class="navbar-brand" style="background-image: url(<?php echo $image[0]; ?>); background-repeat: no-repeat;" href="<?php echo get_site_url(); ?>"></a>
+            <a id="site-brand" class="navbar-brand" href="<?php echo get_site_url(); ?>">
+              <img class="img-responsive" src="<?php echo $image[0]; ?>" alt="">
+            </a>
           </div>
           <!-- "navbar-header fim -->
 
           <nav class="collapse navbar-collapse pull-right menu-topo-mobile" role="navigation">
             <ul id="menu-main-menu-portugues" class="nav navbar-nav">
               <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-92059">
-                <a title="como funciona" class="page-scroll" href="<?php echo get_site_url(); ?>/#comofunciona">Como funciona</a>
+                <a title="como funciona" class="page-scroll" href="<?php echo get_site_url(); ?>/#como-funciona">Como funciona</a>
               </li>
               
               <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-92063">

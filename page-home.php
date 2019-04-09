@@ -173,9 +173,8 @@
 <!-- Fim Lista de resultados Bloco 3A -->
 
 <!-- ============================== -->
-
 <!-- Lista de resultados -->
-<section class="section-benefit bg-gray bg-seta" >
+<section  id="como-funciona" class="section-benefit bg-gray bg-seta" >
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -492,8 +491,8 @@
                                                 <?php
                                                     $card_parcels = get_field('parcelamento', 'option');
                                                     $valor = $min_price / $card_parcels;
-                                                    echo $card_parcels; ?> R$ <?php echo  number_format( $valor, 2, ',', ' ' )
                                                 ?>
+                                                <?= $card_parcels ?>x R$ <?php echo  number_format( $valor, 2, ',', ' ' ) ?>
                                                 </span>
                                             </ins>
                                             <span class="save">Você economiza:
@@ -597,3 +596,4 @@
 <!-- Fim do Bloco referencias -->
 
 <?php get_footer();
+
