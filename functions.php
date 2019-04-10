@@ -365,3 +365,11 @@ function action_woocommerce_review_order_before_payment(  ) {
 }; 
          
 add_action( 'woocommerce_review_order_before_submit', 'action_woocommerce_review_order_before_payment', 10, 0 ); 
+
+
+
+// Retorna o numero máximo de parcelas do pagarme
+function maxInstallmentsPagarme(){
+    $data = new WC_Pagarme_Credit_Card_Gateway();
+    return $data->max_installment;
+}
