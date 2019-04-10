@@ -12866,3 +12866,23 @@ a:focus, button:focus, input:focus, textarea:focus {
 		align-items: center;
 	}
 }
+
+
+
+
+.woocommerce-order-received .woocommerce-customer-details,
+.woocommerce-columns--addresses{
+	display: none !important;
+}
+
+.woocommerce-thankyou-order-details li.woocommerce-order-overview__email{
+	display: none !important;
+}
+
+.woocommerce-order > p > a > button{
+	border-radius: 0;
+	padding: 10px 35px;
+	box-shadow: none;
+	color: #333;
+	text-transform: uppercase;
+}
