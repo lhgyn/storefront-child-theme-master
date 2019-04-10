@@ -260,7 +260,7 @@
             <div class="pull-right hidden-sm hidden-md hidden-lg xs-order">
               <ul id="menu-order-portugues" class="order-nav">
                 <li class="btn-order menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-92053 active">
-                  <a title="Encomendar" class="page-scroll" href="<?php echo get_site_url(); ?>/#order">Peça Agora</a>
+                  <a title="Encomendar" class="page-scroll" href="#order">Peça Agora</a>
                 </li>
               </ul>
             </div>
@@ -296,7 +296,7 @@
 
             <div class="pull-right hidden-xs">
               <ul id="menu-order-portugues-1" class="nav order-nav">
-                <li class="btn-order menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-92053"><a title="Encomendar" class="page-scroll" href="<?php echo get_site_url(); ?>/#order">Peça Agora</a></li>
+                <li class="btn-order menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-92053"><a title="Encomendar" class="page-scroll" href="#order">Peça Agora</a></li>
               </ul>
             </div>
           </nav>

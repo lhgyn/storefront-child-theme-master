@@ -227,7 +227,7 @@
                                             <ins>
                                                 <span class="amount" style="white-space: nowrap; letter-spacing: 0px;">
                                                 <?php
-                                                    $card_parcels = get_field('parcelamento', 'option');
+                                                    $card_parcels = maxInstallmentsPagarme();
                                                     $valor = $min_price / $card_parcels;
                                                     echo $card_parcels; ?> R$ <?php echo  number_format( $valor, 2, ',', ' ' )
                                                 ?>
