@@ -229,8 +229,8 @@
                                                 <?php
                                                     $card_parcels = maxInstallmentsPagarme();
                                                     $valor = $min_price / $card_parcels;
-                                                    echo $card_parcels; ?> R$ <?php echo  number_format( $valor, 2, ',', ' ' )
                                                 ?>
+                                                <?= $card_parcels ?>x R$ <?php echo  number_format( $valor, 2, ',', ' ' ) ?>
                                                 </span>
                                             </ins>
                                             <span class="save">Você economiza:
