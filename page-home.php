@@ -270,7 +270,7 @@
             </a>
         </div>
         <div class="big-text mobile-460-m">
-            <a href="#order" id="cta-garanta" class="btn btn-secondary cta-2 page-scroll">
+            <a href="#order" class="btn btn-secondary cta-2 page-scroll">
                 <?php the_field('s6_texto_botao') ?>
             </a>
         </div>
@@ -428,35 +428,32 @@
 
 <div class="section-order-pattern" id="order-inner"></div>
 
-
 <!-- Bloco de Ofertas -->
-<?php
-    // ID DO PRODUTO
-    $_product = wc_get_product(ID_PRODUTO); 
-    $product_variations = $_product->get_available_variations();
-
-    // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
-    $count = 0;                
-    // se estiver na home limita o loop a 3 iterações
-    if( is_page('home') ){
-        $count = 3;
-    }else{
-        foreach ($product_variations as $key => $value) {
-            $count++;
-        }
-    }
-?>
-<section class="section-order <?= $count == 3 ? '' : 'offers'; ?>" >
+<section class="section-order<?= is_page('home') ? '' : ' offers'; ?>" >
     <div id="order" class="anchor-home"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <h2><?php the_field('s_ofertas_titulo', 3326) ?></h2>
+                    <h2><?php the_field('titulo_checkout') ?></h2>
                 </div>
             </div>
             <div class="row">
 
-                <?php
+                <!-- ID DO PRODUTO  -->
+                <?php $_product = wc_get_product(ID_PRODUTO); 
+                $product_variations = $_product->get_available_variations();
+
+                // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
+                $count = 0;                
+                // se estiver na home limita o loop a 3 iterações
+                if( is_page('home') ){
+                    $count = 3;
+                }else{
+                    foreach ($product_variations as $key => $value) {
+                        $count++;
+                    }
+                }
+
                 // LOOP PREÇO VARIANTE
                 $i = 1;
                 foreach ($product_variations as $variation): ?>
@@ -473,7 +470,7 @@
 
                     <!-- CHECA SE LOOP ESTÁ NO MAIS POPULAR -->
                     <?php if ($i === 2): ?>
-                        <div id="combo-block-<?=$i?>" class="<?= $count == 3 ? 'col-md-4' : 'col-md-3 offers-common'; ?> text-center">
+                        <div id="combo-block-<?=$i?>" class="<?= $count == 3 ? 'col-md-4' : 'col-md-3'; ?> text-center">
                             <div class="popular">
                                 MAIS POPULAR
                             </div>
@@ -618,4 +615,3 @@
 <!-- Fim do Bloco referencias -->
 
 <?php get_footer();
-
