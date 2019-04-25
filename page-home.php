@@ -429,22 +429,34 @@
 <div class="section-order-pattern" id="order-inner"></div>
 
 <!-- Bloco de Ofertas -->
-<section class="section-order" >
+<section class="section-order<?= is_page('home') ? '' : ' offers'; ?>" >
     <div id="order" class="anchor-home"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <h2><?php the_field('s_ofertas_titulo') ?></h2>
+                    <h2><?php the_field('titulo_checkout') ?></h2>
                 </div>
             </div>
             <div class="row">
 
                 <!-- ID DO PRODUTO  -->
                 <?php $_product = wc_get_product(ID_PRODUTO); 
-                $product_variations = $_product->get_available_variations(); 
+                $product_variations = $_product->get_available_variations();
+
+                // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
+                $count = 0;                
+                // se estiver na home limita o loop a 3 iterações
+                if( is_page('home') ){
+                    $count = 3;
+                }else{
+                    foreach ($product_variations as $key => $value) {
+                        $count++;
+                    }
+                }
 
                 // LOOP PREÇO VARIANTE
-                foreach ($product_variations as $variation): $i++; ?>
+                $i = 1;
+                foreach ($product_variations as $variation): ?>
 
                     <!-- PEGA VALORES DE VARIANTES -->
                     <?php
@@ -457,14 +469,14 @@
                     ?>
 
                     <!-- CHECA SE LOOP ESTÁ NO MAIS POPULAR -->
-                    <?php if ($i % 2 === 0): ?>
-                        <div id="combo-block-<?=$i?>" class="col-md-4 text-center">
+                    <?php if ($i === 2): ?>
+                        <div id="combo-block-<?=$i?>" class="<?= $count == 3 ? 'col-md-4' : 'col-md-3'; ?> text-center">
                             <div class="popular">
                                 MAIS POPULAR
                             </div>
                             <div class="featured">
                             <?php else: ?>
-                                <div class="col-md-4 text-center">
+                                <div class="<?= $count == 3 ? 'col-md-4' : 'col-md-3 offers-common'; ?> text-center">
                                     <div class="no">
                                     <?php endif; ?>
                                     <div class="product-image">
@@ -516,8 +528,15 @@
                                     </div>
                     <div class="shipping">ENVIO IMEDIATO</div>
                 </div>
-            </div>
-            <?php endforeach; ?>
+            </div>            
+            <?php
+                if(is_page('home') && $i == 3){
+                    break;
+                }
+                
+                $i++; endforeach;
+            ?>
+
         </div>
     </div>
 </section>
