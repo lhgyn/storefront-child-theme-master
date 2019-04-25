@@ -44,7 +44,7 @@
 
                 // LOOP PREÇO VARIANTE
                 $i = 1;
-                foreach ($product_variations as $variation): ?>
+                foreach (array_reverse($product_variations) as $variation): ?>
 
                     <!-- PEGA VALORES DE VARIANTES -->
                     <?php
@@ -118,7 +118,7 @@
                 </div>
             </div>            
             <?php
-                if(is_page('home') && $i == 3){
+                if($i == 4){
                     break;
                 }
                 
