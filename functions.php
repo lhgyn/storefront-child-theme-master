@@ -87,7 +87,7 @@ add_action( 'get_header', 'remove_storefront_sidebar' );
 
 function remove_storefront_sidebar() {
     if ( is_shop() ) {
-        remove_action( 'storefront_sidebar', 'storefront_get_sidebar',          10 );
+        remove_action( 'storefront_sidebar', 'storefront_get_sidebar', 10 );
     }
 }
 
