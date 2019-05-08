@@ -615,4 +615,3 @@
 <!-- Fim do Bloco referencias -->
 
 <?php get_footer();
-
