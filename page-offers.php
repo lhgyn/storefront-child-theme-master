@@ -29,7 +29,7 @@
 
                 <!-- ID DO PRODUTO  -->
                 <?php $_product = wc_get_product(ID_PRODUTO); 
-                $product_variations = $_product->get_available_variations();
+                $product_variations = $_product->get_available_variations(desc);
 
                 // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
                 $count = 0;                
@@ -57,7 +57,7 @@
                     ?>
 
                     <!-- CHECA SE LOOP ESTÁ NO MAIS POPULAR -->
-                    <?php if ($i === 2): ?>
+                    <?php if ($i === 3): ?>
                         <div id="combo-block-<?=$i?>" class="<?= $count == 3 ? 'col-md-4' : 'col-md-3'; ?> text-center">
                             <div class="popular">
                                 MAIS POPULAR
