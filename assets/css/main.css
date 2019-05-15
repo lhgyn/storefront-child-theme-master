@@ -12919,3 +12919,10 @@ a:focus, button:focus, input:focus, textarea:focus {
 	color: #333;
 	text-transform: uppercase;
 }
+
+@media only screen and (max-width: 991px){
+	.dynamic-offers-block-responsive{
+		display: flex;
+		flex-direction: column-reverse;
+	}
+}
