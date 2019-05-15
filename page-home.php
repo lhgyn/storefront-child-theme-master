@@ -428,35 +428,35 @@
 
 <div class="section-order-pattern" id="order-inner"></div>
 
+
+
 <!-- Bloco de Ofertas -->
-<section class="section-order<?= is_page('home') ? '' : ' offers'; ?>" >
+<?php
+    ///////////ID DO PRODUTO
+    $_product = wc_get_product(ID_PRODUTO); 
+    $product_variations = $_product->get_available_variations();
+
+    // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
+    $count = 0;                
+    foreach ($product_variations as $key => $value) {
+        $count++;
+    }
+?>
+<section class="section-order offers <?php echo $count == 4 ? 'offers' : '' ?>" >
     <div id="order" class="anchor-home"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <h2><?php the_field('titulo_checkout') ?></h2>
+                    <h2><?php the_field('s_ofertas_titulo') ?></h2>
+                    <h3 class="text-center"><?php echo $count; ?></h3>
                 </div>
             </div>
             <div class="row">
 
-                <!-- ID DO PRODUTO  -->
-                <?php $_product = wc_get_product(ID_PRODUTO); 
-                $product_variations = $_product->get_available_variations();
-
-                // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
-                $count = 0;                
-                // se estiver na home limita o loop a 3 iterações
-                if( is_page('home') ){
-                    $count = 3;
-                }else{
-                    foreach ($product_variations as $key => $value) {
-                        $count++;
-                    }
-                }
-
+                <?php
                 // LOOP PREÇO VARIANTE
                 $i = 1;
-                foreach ($product_variations as $variation): ?>
+                foreach (array_reverse($product_variations) as $variation): ?>
 
                     <!-- PEGA VALORES DE VARIANTES -->
                     <?php
@@ -530,7 +530,7 @@
                 </div>
             </div>            
             <?php
-                if(is_page('home') && $i == 3){
+                if(is_page('home') && $i == 4){
                     break;
                 }
                 
