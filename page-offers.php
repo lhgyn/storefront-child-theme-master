@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <h2><?php the_field('s_ofertas_titulo', 3226) ?></h2>
+                    <h2><?php the_field('s_ofertas_titulo', HOMEID) ?></h2>
                 </div>
             </div>
             <div class="row">
