@@ -450,7 +450,7 @@
                     <h2><?php the_field('s_ofertas_titulo') ?></h2>
                 </div>
             </div>
-            <div class="row <?php echo $count == 4 ? 'dynamic-offers-block-responsive' : ''; ?>">
+            <div <?php echo $count == 4 ? 'id="dynamic-offers-reverse-mobile"' : ''; ?> class="row">
 
                 <?php
                 // LOOP PREÇO VARIANTE

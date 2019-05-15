@@ -12921,7 +12921,7 @@ a:focus, button:focus, input:focus, textarea:focus {
 }
 
 @media only screen and (max-width: 991px){
-	.dynamic-offers-block-responsive{
+	#dynamic-offers-reverse-mobile{
 		display: flex;
 		flex-direction: column-reverse;
 	}
