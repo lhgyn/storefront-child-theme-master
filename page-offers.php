@@ -7,7 +7,7 @@
 <div class="scroll">
 
 <section>
-    <div class="container" style="margin-top: 60px; margin-bottom: 50px;">
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
         <div class="row">
             
         </div>
@@ -16,90 +16,33 @@
 
 
 
-<!-- Bloco 10 -->
-<section class="section-list bg-white bg-seta">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h2><?php the_field('s10_titulo') ?></h2>
-            </div>
-        </div>
-        <div class="row">
-
-            <?php if(have_rows('selos')): ?>
-            <?php while(have_rows('selos')): the_row(); ?>
-
-                <div class="col-sm-6 col-md-4 col-xs-12">
-                    <div class="col-xs-3 col-md-3">
-                        <img src="<?php the_sub_field('icone'); ?>" alt="" class="img-responsive list-icon">
-                    </div>
-                    <div class="col-xs-9 col-md-9 list-column">
-                        <span class="list-titles"><?php the_sub_field('titulo'); ?></span>
-                    </div>
-                </div>
-
-            <?php endwhile; ?>
-            <?php endif; ?>
-
-        </div>
-    </div>
-</section>
-<!-- Fim Bloco 10 -->
-
-<div class="detalhes detalhe-pixels_0"></div>
-
-<!-- Bloco de Garantia -->
-<section class="section-guarantee bg-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h2><?php the_field('s11_titulo') ?></h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 col-md-3">
-                <img src=<?php the_field('s11_imagem') ?> alt="" class="img-responsive">
-            </div>
-            <div class="col-sm-8 col-md-9">
-                <?php the_field('s11_texto'); ?>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Fim Bloco de Garantia -->
-
-<div class="section-order-pattern" id="order-inner"></div>
 
 <!-- Bloco de Ofertas -->
-<!-- Bloco de Ofertas -->
-<section class="section-order offers" >
+<?php
+    ///////////ID DO PRODUTO
+    $_product = wc_get_product(ID_PRODUTO); 
+    $product_variations = $_product->get_available_variations();
+
+    // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
+    $count = 0;                
+    foreach ($product_variations as $key => $value) {
+        $count++;
+    }
+?>
+<section class="section-order offers <?php echo $count == 4 ? 'offers' : '' ?>" >
     <div id="order" class="anchor-home"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <h2><?php the_field('titulo_checkout') ?></h2>
+                    <h2><?php the_field('s_ofertas_titulo', 3226) ?></h2>
                 </div>
             </div>
             <div class="row">
 
-                <!-- ID DO PRODUTO  -->
-                <?php $_product = wc_get_product(ID_PRODUTO); 
-                $product_variations = $_product->get_available_variations();
-
-                // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
-                $count = 0;                
-                // se estiver na home limita o loop a 3 iterações
-                if( is_page('home') ){
-                    $count = 4;
-                }else{
-                    foreach ($product_variations as $key => $value) {
-                        $count++;
-                    }
-                }
-
+                <?php
                 // LOOP PREÇO VARIANTE
                 $i = 1;
-                foreach ($product_variations as $variation): ?>
+                foreach (array_reverse($product_variations) as $variation): ?>
 
                     <!-- PEGA VALORES DE VARIANTES -->
                     <?php
@@ -119,7 +62,7 @@
                             </div>
                             <div class="featured">
                             <?php else: ?>
-                                <div class="<?= $count == 3 ? 'col-md-4' : 'col-md-3'; ?> offers-common text-center">
+                                <div class="<?= $count == 3 ? 'col-md-4' : 'col-md-3 offers-common'; ?> text-center">
                                     <div class="no">
                                     <?php endif; ?>
                                     <div class="product-image">

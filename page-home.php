@@ -448,7 +448,6 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <h2><?php the_field('s_ofertas_titulo') ?></h2>
-                    <h3 class="text-center"><?php echo $count; ?></h3>
                 </div>
             </div>
             <div class="row">
