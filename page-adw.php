@@ -196,7 +196,7 @@
                 <?php
                 // LOOP PREÇO VARIANTE
                 $i = 1;
-                foreach (array_reverse($product_variations) as $variation): ?>
+                foreach ($product_variations as $variation): ?>
 
                     <!-- PEGA VALORES DE VARIANTES -->
                     <?php
