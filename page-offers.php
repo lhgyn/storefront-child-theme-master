@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <h2><?php the_field('s_ofertas_titulo') ?></h2>
+                    <h2><?php the_field('s_ofertas_titulo', HOMEID) ?></h2>
                 </div>
             </div>
             <div <?php echo $count == 4 ? 'id="dynamic-offers-reverse-mobile"' : ''; ?> class="row">
