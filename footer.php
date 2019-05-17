@@ -89,7 +89,7 @@ if(is_page(13)):
   </div>
   <div class="row" style="background: #f6f6f6">
     <div class="col-12 text-center" style="color: #8d8d8d;font-size: 11px; border: 2px solid #ededed; line-height: 24px;">
-      os resultados podem variar de pessoa para pessoa *
+      Os resultados podem variar de pessoa para pessoa *
     </div>
   </div>
   <div class="row" style="background: #d8d8d8;">
