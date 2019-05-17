@@ -373,3 +373,85 @@ function maxInstallmentsPagarme(){
     $data = new WC_Pagarme_Credit_Card_Gateway();
     return $data->max_installment;
 }
+
+
+
+
+
+
+/****************
+*** CUSTOM FIELDS FOR gandrox VARIATIONS.
+******
+************/
+// Add Variation Settings
+add_action( 'woocommerce_product_after_variable_attributes', 'variation_settings_fields', 10, 3 );
+// Save Variation Settings
+add_action( 'woocommerce_save_product_variation', 'save_variation_settings_fields', 10, 2 );
+/**
+ * Create new fields for variations
+ *
+*/
+function variation_settings_fields( $loop, $variation_data, $variation ) {
+    // Select Field
+    woocommerce_wp_select( 
+        array( 
+            'id'          => '_variation_popular_status[' . $variation->ID . ']', 
+            'label'       => __( 'Habilitar como Destaque?', 'woocommerce' ), 
+            'placeholder' => '',
+            'desc_tip'    => 'true',
+            'description' => __( 'Define se a variação sera marcada como Destaque', 'woocommerce' ),
+            'value'       => get_post_meta( $variation->ID, '_variation_popular_status', true ),
+            'options' => array(
+                'disabled'   => __( 'Desabilitado', 'woocommerce' ),
+                'enabled'   => __( 'Habilitado', 'woocommerce' )
+            )
+        )
+    );
+    // Text Field
+    woocommerce_wp_text_input( 
+        array( 
+            'id'          => '_variation_popular_title[' . $variation->ID . ']', 
+            'label'       => __( 'Titulo do produto em destaque', 'woocommerce' ), 
+            'placeholder' => 'Ex: Mais Popular, Em Destaque, etc..',
+            'desc_tip'    => 'true',
+            'description' => __( 'Titulo visivel ex: Mais popular, Em destaque, etc..', 'woocommerce' ),
+            'value'       => get_post_meta( $variation->ID, '_variation_popular_title', true )
+        )
+    );
+}
+/**
+ * Save new fields for variations
+ *
+*/
+function save_variation_settings_fields( $post_id ) {
+    // Select Field
+    $select = $_POST['_variation_popular_status'][ $post_id ];
+    if( ! empty( $select ) ) {
+        update_post_meta( $post_id, '_variation_popular_status', esc_attr( $select ) );
+    }
+    // Text Field
+    $text_field = $_POST['_variation_popular_title'][ $post_id ];
+    if( ! empty( $text_field ) ) {
+        update_post_meta( $post_id, '_variation_popular_title', esc_attr( $text_field ) );
+    }
+}
+
+
+// Add New Variation Settings
+add_filter( 'woocommerce_available_variation', 'load_variation_settings_fields' );
+/**
+ * Add custom fields for variations
+ *
+*/
+function load_variation_settings_fields( $variations ) {
+    
+    // duplicate the line for each field
+    $variations['variation_popular_status'] = get_post_meta( $variations[ 'variation_id' ], '_variation_popular_status', true );
+    $variations['variation_popular_title'] = get_post_meta( $variations[ 'variation_id' ], '_variation_popular_title', true );
+    
+    return $variations;
+}
+
+/**********************
+*** Fim custom fields variations.
+***********/

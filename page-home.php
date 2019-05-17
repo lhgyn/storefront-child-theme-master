@@ -428,32 +428,31 @@
 
 <div class="section-order-pattern" id="order-inner"></div>
 
+
+
 <!-- Bloco de Ofertas -->
-<section class="section-order<?= is_page('home') ? '' : ' offers'; ?>" >
+<?php
+    ///////////ID DO PRODUTO
+    $_product = wc_get_product(ID_PRODUTO); 
+    $product_variations = $_product->get_available_variations();
+
+    // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
+    $count = 0;                
+    foreach ($product_variations as $key => $value) {
+        $count++;
+    }
+?>
+<section class="section-order offers <?php echo $count == 4 ? 'offers' : '' ?>" >
     <div id="order" class="anchor-home"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <h2><?php the_field('titulo_checkout') ?></h2>
+                    <h2><?php the_field('s_ofertas_titulo') ?></h2>
                 </div>
             </div>
-            <div class="row">
+            <div <?php echo $count == 4 ? 'id="dynamic-offers-reverse-mobile"' : ''; ?> class="row">
 
-                <!-- ID DO PRODUTO  -->
-                <?php $_product = wc_get_product(ID_PRODUTO); 
-                $product_variations = $_product->get_available_variations();
-
-                // FAZ A CONTAGEM DE VARIAÇÃOES DO PRODUTO
-                $count = 0;                
-                // se estiver na home limita o loop a 3 iterações
-                if( is_page('home') ){
-                    $count = 3;
-                }else{
-                    foreach ($product_variations as $key => $value) {
-                        $count++;
-                    }
-                }
-
+                <?php
                 // LOOP PREÇO VARIANTE
                 $i = 1;
                 foreach ($product_variations as $variation): ?>
@@ -466,13 +465,17 @@
                         $frascos = get_product_ref($variation['variation_id']);
                         $economia = $regular_price - $min_price;
                         $link_comprar =  get_site_url() . '/?add-to-cart=' . ID_PRODUTO . "&variation_id=" . $variation['variation_id'];
+
+                        $is_popular = get_post_meta( $variation['variation_id'], '_variation_popular_status', true );
+                        $product_destak_title = get_post_meta( $variation['variation_id'], '_variation_popular_title', true );
+                        
                     ?>
 
                     <!-- CHECA SE LOOP ESTÁ NO MAIS POPULAR -->
-                    <?php if ($i === 2): ?>
-                        <div id="combo-block-<?=$i?>" class="<?= $count == 3 ? 'col-md-4' : 'col-md-3'; ?> text-center">
+                    <?php if ($is_popular == 'enabled'): ?>
+                        <div id="combo-block" class="<?= $count == 3 ? 'col-md-4' : 'col-md-3'; ?> text-center">
                             <div class="popular">
-                                MAIS POPULAR
+                                <?= $product_destak_title ?>
                             </div>
                             <div class="featured">
                             <?php else: ?>
@@ -530,7 +533,7 @@
                 </div>
             </div>            
             <?php
-                if(is_page('home') && $i == 3){
+                if(is_page('home') && $i == 4){
                     break;
                 }
                 
