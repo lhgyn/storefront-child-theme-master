@@ -140,7 +140,7 @@
                   <i class="flaticon-payment"></i>
                 </div>
                 <div class="col-9 list-column">
-                  <span class="list-titles">Cartão de crédito em até 6x sem juros</span>
+                  <span class="list-titles">Cartão de crédito em até <?php echo maxInstallmentsPagarme(); ?> sem juros</span>
                 </div>
               </div>
               <div class="col-4 row">
