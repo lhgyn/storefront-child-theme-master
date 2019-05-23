@@ -12926,3 +12926,122 @@ a:focus, button:focus, input:focus, textarea:focus {
 		flex-direction: column-reverse;
 	}
 }
+
+
+
+
+
+
+#medical-authority{
+	position: relative;
+	background: #e8e8e8;
+}
+#medical-authority::before{
+	content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #0077c8;
+    display: block;
+    border: 1px solid green;
+    width: 45px !important;
+    height: 45px !important;
+    border-top: 4px solid #3f96d1;
+    -webkit-clip-path: polygon(52% 50%, 0 0, 100% 0);
+    clip-path: polygon(52% 50%, 0 0, 100% 0);
+    z-index: 999;
+}
+#authority{	
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	z-index: 0;
+}
+#medical-authority .content-wraper{
+	position: relative;
+	filter: drop-shadow(-2px -2px 2px #ddd);
+}
+#medical-authority .content-wraper::before{
+	content:  "";
+	position: absolute;
+	right: -30px; top: 15%;
+	width: 30px; height: 50px;
+	background: #eee;
+	-webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
+	clip-path: polygon(0 0, 0% 100%, 100% 50%);
+}
+#medical-authority .content-wraper .content{
+	background: linear-gradient(135deg, #fcfcfc 0%,#e8e8e8 100%);
+	padding: 25px;
+	color:  #333;
+	border-radius: 8px;
+}
+#medical-authority .cta{
+	padding-top: 30px;
+}
+
+@media only screen and (max-width: 1199px){
+	#authority{
+		background-position: right -180px bottom !important;
+	}
+}
+@media only screen and (max-width: 991px){
+	#authority{
+		background: none !important;
+	}
+	#medical-authority .content-wraper::before{
+		display: none;
+	}
+	#medical-authority .content-wraper .content img{
+		margin-bottom: 20px;
+	}
+	#medical-authority .cta a{
+		margin: 0 auto;
+	}
+}
+
+
+
+.btn strong{
+	display: block !important;
+}
+#cta-button{
+	position: relative;
+	display: block;
+	max-width: 450px;
+	min-height: 60px;
+	border-radius: 4px;
+	border-bottom-width: 3px !important;
+	/* box-shadow: inset #479e16  2px 2px 5px; */
+}
+#cta-button::after{
+	content:"";
+}
+#cta-button .left{
+	position: absolute;
+	left: 0; top: 0;
+	width: 85%; height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #FFF;
+}
+#cta-button .right{
+	position: absolute;
+	right: 0; top: 0;
+	width: 15%; height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+#cta-button .right::before{
+    content: "";
+    position: absolute;
+    left: 0; top: 15%;
+    width: 1px;
+    height: 70%;
+    background: #479e16;
+}

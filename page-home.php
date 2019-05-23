@@ -245,9 +245,48 @@
 </section>
 <!-- Fim Bloco lista de ingredientes -->
 
-<div class="detalhes detalhe-pixels_0"></div>
 
-<!-- Bloco 6 -->
+<!-- ///////////////////////////////////////////////////////
+/////////  BLOCO 6
+//////////////////////////////////// -->
+<?php    
+    $this_site = get_home_url();
+    $key = 'phenatrim';
+
+    if(strpos($this_site, $key) == true): ?>
+<!-- ////// BLOCO DO PHENATRIM
+/////////////////////////////////// -->
+<section id="medical-authority" class="three section-stats bg-gray">
+    <div id="authority" style="background: url('<?php the_field('s6_imagem'); ?>') right -100px bottom no-repeat; background-size: auto 90%;padding-bottom: 100px"></div>
+
+    <div class="container">
+        <div class="row">
+            <h2><?php the_field('s6_titulo') ?></h2>
+            
+            <div class="col-md-8 col-lg-8 col-md-offset">
+                <div class="content-wraper">
+                    <div class="content">
+                        <img src="<?php the_field('s6_imagem') ?>" alt="" class="img img-responsive visible-sm visible-xs">
+                        <?php the_field('s6_texto') ?>
+                    </div>
+                </div>
+
+                <div class="cta">                    
+                    <a href="#order" id="cta-button" class="btn btn-secondary cta-2">
+                        <div class="left"><?php the_field('s6_texto_botao') ?></div>
+                        <div class="right">
+                            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/imagens/arrow-button.png'; ?>" style="max-width: 20px;" alt="">
+                        </div>                        
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php else: ?>
+<!-- ////// BLOCO DAS DEMAIS LOJAS
+/////////////////////////////////// -->
 <section class="section-stats bg-gray ">
     <div class="container">
         <div class="row">
@@ -278,7 +317,13 @@
 
     </div>
 </section>
-<!-- Fim do Bloco 6 -->
+
+<?php endif;?>
+
+<!-- /////////////   FIM BLOCO 6
+///////////////////////////////////////////// -->
+
+
 
 <div class="detalhes detalhe-pixels_0"></div>
 
