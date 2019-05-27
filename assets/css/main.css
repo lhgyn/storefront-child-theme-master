@@ -13003,7 +13003,7 @@ a:focus, button:focus, input:focus, textarea:focus {
 
 
 
-.btn strong{
+#cta-button.btn strong{
 	display: block !important;
 }
 #cta-button{
