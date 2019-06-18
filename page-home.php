@@ -273,7 +273,7 @@
                     <a href="#order" id="cta-button" class="btn btn-secondary cta-2">
                         <div class="left"><?php the_field('s6_texto_botao') ?></div>
                         <div class="right">
-                            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/imagens/arrow-button.png'; ?>" style="max-width: 20px;" alt="">
+                            <i class="fa fa-chevron-right"></i>
                         </div>                        
                     </a>
                 </div>

@@ -13037,11 +13037,3 @@ a:focus, button:focus, input:focus, textarea:focus {
 	justify-content: center;
 
 }
-#cta-button .right::before{
-    content: "";
-    position: absolute;
-    left: 0; top: 15%;
-    width: 1px;
-    height: 70%;
-    background: #479e16;
-}
