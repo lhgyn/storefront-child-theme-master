@@ -249,11 +249,8 @@
 <!-- ///////////////////////////////////////////////////////
 /////////  BLOCO 6
 //////////////////////////////////// -->
-<?php    
-    $this_site = get_home_url();
-    $key = 'phenatrim';
-
-    if(strpos($this_site, $key) == true): ?>
+<?php 
+    if(strpos($this_site, $is_phenatrim) == true): ?>
 <!-- ////// BLOCO DO PHENATRIM
 /////////////////////////////////// -->
 <section id="medical-authority" class="three section-stats bg-gray">

@@ -6,6 +6,9 @@
  *
  * @package storefront
  */
+   
+    $this_site = 'phenatrim';//get_home_url();
+    $is_phenatrim = 'phenatrim'; //verifica se está no site phenatrim, se estiver aplica algumas propriedades específicas dele, como telefone e bloco de autoridade médica; 
 
 ?>
 <!doctype html>
@@ -50,6 +53,27 @@
 
       <?php endwhile; ?>
     <?php endif; ?>
+
+
+        <!-- //////////////////////////////////////////////////////////////////
+    ////////////// REMARKETING GOOGLE ADS
+    ////////////////////////////////////// -->
+    <?php
+      if(have_rows('tag_de_remarketing', 'option')){
+        while(have_rows('tag_de_remarketing', 'option')){
+          the_row();
+          $pagina = get_sub_field('pagina');
+
+          foreach ($pagina as $key => $value) {
+            if( is_page($value) ){
+              echo "<script>".get_sub_field('global_tag_id')."</script>";
+              echo "<script>".get_sub_field('snipet_id')."</script>";
+            }
+          }
+
+        }
+      }
+    ?>
 
   </head>
 
@@ -148,7 +172,7 @@
                   <i class="flaticon-phone-call"></i>
                 </div>
                 <div class="col-9 list-column">
-                  <span class="list-titles">Ligue para nós <br>(62) 3639-2975
+                  <span class="list-titles">Ligue para nós <br><?php echo strpos($this_site, $is_phenatrim) == true? '(62) 3639-2978': '(62) 3639-2975'?>
                   </span>
                 </div>
               </div>
@@ -203,7 +227,7 @@
                   <i class="flaticon-phone-call"></i>
                 </div>
                 <div class="col-9 list-column">
-                  <span class="list-titles">Ligue para nós <br>(62) 3639-2975
+                  <span class="list-titles">Ligue para nós <br><?php echo strpos($this_site, $is_phenatrim) == true? '(62) 3639-2978': '(62) 3639-2975'?>
                   </span>
                 </div>
               </div>
@@ -238,8 +262,8 @@
               <div class="col-md-12">
                 <ul class="list-inline header-options text-right">
                   <li>
-                    <span class="click-to-call hidden-sm hidden-md hidden-lg"><span class="glyphicon glyphicon-earphone"></span> FALE CONOSCO: (62) 3639-2975</span>
-                    <span class="call-us hidden-xs"><span class="glyphicon glyphicon-earphone"></span> FALE CONOSCO: (62) 3639-2975</span>
+                    <span class="click-to-call hidden-sm hidden-md hidden-lg"><span class="glyphicon glyphicon-earphone"></span> FALE CONOSCO: <?php echo strpos($this_site, $is_phenatrim) == true? '(62) 3639-2978': '(62) 3639-2975'?></span>
+                    <span class="call-us hidden-xs"><span class="glyphicon glyphicon-earphone"></span> FALE CONOSCO: <?php echo strpos($this_site, $is_phenatrim) == true? '(62) 3639-2978': '(62) 3639-2975'?></span>
                   </li>
                 </ul>
               </div>
