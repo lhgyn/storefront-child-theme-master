@@ -60,6 +60,7 @@
     ////////////////////////////////////// -->
     <?php
       if(have_rows('tag_de_remarketing', 'option')){
+
         while(have_rows('tag_de_remarketing', 'option')){
           the_row();
           $pagina = get_sub_field('pagina');
@@ -72,6 +73,7 @@
           }
 
         }
+        
       }
     ?>
 
