@@ -7,7 +7,7 @@
  * @package storefront
  */
    
-    $this_site = 'phenatrim';//get_home_url();
+    $this_site = get_home_url();
     $is_phenatrim = 'phenatrim'; //verifica se está no site phenatrim, se estiver aplica algumas propriedades específicas dele, como telefone e bloco de autoridade médica; 
 
 ?>
@@ -73,7 +73,7 @@
           }
 
         }
-        
+
       }
     ?>
 

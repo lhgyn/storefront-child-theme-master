@@ -249,8 +249,9 @@
 <!-- ///////////////////////////////////////////////////////
 /////////  BLOCO 6
 //////////////////////////////////// -->
-<?php 
-    if(strpos($this_site, $is_phenatrim) == true): ?>
+<?php
+    $this_site = get_home_url();
+    if(strpos($this_site, 'phenatrim') == true): ?>
 <!-- ////// BLOCO DO PHENATRIM
 /////////////////////////////////// -->
 <section id="medical-authority" class="three section-stats bg-gray">
