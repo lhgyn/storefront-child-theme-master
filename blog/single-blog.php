@@ -15,7 +15,7 @@
             <div class="row">
                <div class="col-xs-12 col-sm-12">
                   <h2>
-                     <a href="<?= home_url('/blog'); ?>">Blog</a> <i class="fa fa-angle-right"></i> <?= $post_terms[0]->name ?> <span class="hidden-xs"> - </span><span class="latest"><?= the_title(); ?></span>
+                     <a href="<?= home_url('/blog'); ?>">Blog</a> <i class="fa fa-angle-right"></i> <?= $post_terms[0]->name ?> <span class="hidden-xs"> <i class="fa fa-angle-right"></i> </span><span class="latest"><?= the_title(); ?></span>
                   </h2>
                </div>
             </div>
