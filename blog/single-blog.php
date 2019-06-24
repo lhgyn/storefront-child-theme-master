@@ -13,13 +13,10 @@
 
          <div class="col-md-8">
             <div class="row">
-               <div class="col-xs-6 col-sm-8">
+               <div class="col-xs-12 col-sm-12">
                   <h2>
-                     <a href="<?= home_url('/blog'); ?>">Blog</a> &nbsp;/&nbsp; <?= $post_terms[0]->name ?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
+                     <a href="<?= home_url('/blog'); ?>">Blog</a> <i class="fa fa-angle-right"></i> <?= $post_terms[0]->name ?> <span class="hidden-xs"> - </span><span class="latest"><?= the_title(); ?></span>
                   </h2>
-               </div>
-               <div class="col-xs-6 col-sm-4 text-right">
-                  <a href="<?php echo home_url().'/category/saude' ?>" class="read-more">ver mais</a>
                </div>
             </div>
 
@@ -34,7 +31,7 @@
                ?>
                         
                <div>
-                  <h1 class="entry-title"><?php the_title(); ?></h1>
+                  <h1 class="entry-title" style="display: block;"><?php the_title(); ?></h1>
                   <hr>
                </div>
                <div class="entry-content">
