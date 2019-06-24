@@ -38,13 +38,16 @@
     <!-- Fim da Biblioteca do site -->
 
     <!-- Biblioteca Blog -->
-    <link rel="stylesheet" href="<?php  echo get_stylesheet_directory_uri() ?>/blog/assets/css/main.css">
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/blog/assets/css/main.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/blog/assets/css/header.css"> 
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/blog/assets/css/single.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/blog/assets/css/sidebar.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/blog/assets/css/category.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/blog/assets/css/footer.css"> 
     <!-- Biblioteca Fim -->
+
+
+    <script src="<?php echo get_stylesheet_directory_uri() .'/assets/js/bootstrap.js'; ?>" type="text/javascript" charset="utf-8"></script>
    
     <!-- //////////////////////////////////////////////////////////////////
     ////////////// PIXEL GOOGLE ANALYTICS
