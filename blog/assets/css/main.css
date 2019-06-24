@@ -129,4 +129,5 @@
 
 .row.older-posts .other-posts.col-sm-4 > a > .row.older-posts-mobile img {
     max-height: 160px;
+    min-height: 160px;
 }
