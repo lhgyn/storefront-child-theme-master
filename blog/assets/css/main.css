@@ -127,7 +127,9 @@
     object-position: 50% 50%;
 }
 
-.row.older-posts .other-posts.col-sm-4 > a > .row.older-posts-mobile img {
-    max-height: 160px;
-    min-height: 160px;
+@media screen and (max-width: 767px) {
+    .row.older-posts .other-posts.col-sm-4 > a > .row.older-posts-mobile img {
+        max-height: 160px;
+        min-height: 160px;
+    }
 }
