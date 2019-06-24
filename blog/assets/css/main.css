@@ -29,6 +29,10 @@
     text-align: left;
 }
 
+.blog-category > .row {
+    margin: 0;
+}
+
 .blog-category h2:after, .blog-category h3:after, .blog-category h4:after, .blog-category h5:after, .blog-category h6:after {
     display: none;
 }
@@ -114,4 +118,15 @@
 
 .blog-category .side-posts a .row {
     min-height: 100px;
+}
+
+.blog-category .side-posts a .row .col-md-5 img {
+    min-width: 100%;
+    max-height: 90px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.row.older-posts .other-posts.col-sm-4 > a > .row.older-posts-mobile img {
+    max-height: 160px;
 }

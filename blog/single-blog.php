@@ -14,8 +14,8 @@
          <div class="col-md-8">
             <div class="row">
                <div class="col-xs-12 col-sm-12">
-                  <h2>
-                     <a href="<?= home_url('/blog'); ?>">Blog</a> <i class="fa fa-angle-right"></i> <?= $post_terms[0]->name ?> <span class="hidden-xs"> <i class="fa fa-angle-right"></i> </span><span class="latest"><?= the_title(); ?></span>
+                  <h2 class="title-breadcrumb">
+                     <a href="<?= home_url('/blog'); ?>">Blog</a> <i class="fa fa-angle-right"></i> <a href="<?= home_url('/category/' . $post_terms[0]->slug); ?>"><?= $post_terms[0]->name ?></a> <span class="hidden-xs"> <i class="fa fa-angle-right"></i> </span><span class="latest"><?= the_title(); ?></span>
                   </h2>
                </div>
             </div>
@@ -31,7 +31,7 @@
                ?>
                         
                <div>
-                  <h1 class="entry-title" style="display: block;"><?php the_title(); ?></h1>
+                  <h1 class="entry-title title-post" style="display: block;"><?php the_title(); ?></h1>
                   <hr>
                </div>
                <div class="entry-content">
@@ -41,7 +41,7 @@
             </article>
 
             <div class="row older-posts">
-               <div class="col-md-12">
+               <div>
                   <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>3, 'category_name'=>$post_terms[0]->slug, 'offset'=>1));
                   if($loop->have_posts()): ?>
                      <h4 class="col-md-12">Talvez você se interesse...</h4>
