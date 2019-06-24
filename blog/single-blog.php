@@ -78,7 +78,7 @@
             <ul class="link-count">
                <?php
                   foreach ($all_terms as $key => $term) { ?>
-                     <li><span><a href="<?php echo home_url('/category') . $term->slug ?>"><?php $term->name ?></a></span></li>
+                     <li><span><a href="<?php echo home_url('/category') . $term->slug ?>"><?php echo $term->name ?></a></span></li>
                   <?php }
                 ?>
             </ul>
