@@ -13,13 +13,13 @@
 
 foreach ($categories as $key => $cat) : ?>
 
-   <section class="blog-category container">
+   <section class="blog-category container section-main bg-white">
       <div class="row">
          <div class="col-md-8">
             <div class="row">
                <div class="col-xs-6 col-sm-8">
                   <h2>
-                     <?=$cat?>            <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
+                     <?=$cat?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
                   </h2>
                </div>
                <div class="col-xs-6 col-sm-4 text-right">

@@ -5,7 +5,8 @@
 
 ?>
 
-<div class="blog-flexible" style="margin-top: 150px;">
+
+<div class="blog-flexible">
 
 
    <section class="blog-category container">

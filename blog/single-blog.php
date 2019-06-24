@@ -8,7 +8,7 @@
 ?>
 
 <div class="blog-flexible">
-   <section class="blog-category container">
+   <section class="blog-category container section-main bg-white">
       <div class="row">
 
          <div class="col-md-8">
@@ -23,7 +23,7 @@
                </div>
             </div>
 
-            <article>   
+            <article> 
             <?php if(have_posts()): while(have_posts()): the_post(); ?>
                <?php
                   if(get_the_post_thumbnail()): 
@@ -44,57 +44,15 @@
             </article>
 
             <div class="row older-posts">
-               <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>3, 'category_name'=>$post_terms[0]->slug, 'offset'=>1));
-               if($loop->have_posts()):while($loop->have_posts()):$loop->the_post(); ?>
-               <div class="other-posts col-sm-4">
-                  <a href="<?php the_permalink() ?>">
-                     <div class="row older-posts-mobile">
-                        <div class="col-xs-6 col-sm-12">
-                           <?php
-                              if(get_the_post_thumbnail()): 
-                                 the_post_thumbnail( 'full', array('class'=>'img-responsive') );
-                              else: 
-                                 echo '<img src="'.get_stylesheet_directory_uri().'/blog/assets/default-image.jpg" class="img-responsive">';
-                              endif;
-                           ?>
-                        </div>
-                        <div class="col-xs-6 col-sm-12">
-                           <p><?php the_title(); ?></p>
-                           <p class="read-more">ler mais</p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <?php endwhile; endif; wp_reset_postdata(); ?>
-            </div>
-         </div>
-
-         <div class="side-posts col-md-4 hidden-xs hidden-sm">
-            <div class="col-md-12">
-               <div class="row">
-                  <div class="blog-header-categories">
-                     <h3>Categorias</h3>
-                     <ul class="link-count" style="height: auto;">
-                        <?php
-                           foreach ($all_terms as $key => $term) { ?>
-                              <li><span><a href="<?php echo home_url('/category/') . $term->slug ?>"><?php echo $term->name ?></a></span></li>
-                           <?php }
-                         ?>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-
-            <div class="col-md-12">
-               <div class="row">
-                  <div class="mn-related">
-                     <h3>Recomendado</h3>
-                     <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>6, 'category_name'=>$post_terms[0]->slug, 'offset'=>4, 'orderby'=>'rand'));
-                     if($loop->have_posts()):while($loop->have_posts()):$loop->the_post(); ?>
-
-                     <a href="<?php the_permalink(); ?>">
-                        <div class="row">
-                           <div class="col-md-5">
+               <div class="col-md-12">
+                  <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>3, 'category_name'=>$post_terms[0]->slug, 'offset'=>1));
+                  if($loop->have_posts()): ?>
+                     <h4 class="col-md-12">Talvez você se interesse...</h4>
+                  <?php while($loop->have_posts()):$loop->the_post(); ?>
+                  <div class="other-posts col-sm-4">
+                     <a href="<?php the_permalink() ?>">
+                        <div class="row older-posts-mobile">
+                           <div class="col-xs-6 col-sm-12">
                               <?php
                                  if(get_the_post_thumbnail()): 
                                     the_post_thumbnail( 'full', array('class'=>'img-responsive') );
@@ -103,18 +61,52 @@
                                  endif;
                               ?>
                            </div>
-                           <div class="col-md-7">
-                              <h4><?php the_title(); ?></h4>
-                              <p class="read-more">ler mais...</p>
+                           <div class="col-xs-6 col-sm-12">
+                              <p><?php the_title(); ?></p>
+                              <p class="read-more">ler mais</p>
                            </div>
                         </div>
                      </a>
-
-                     <?php endwhile; endif; wp_reset_postdata(); ?>
                   </div>
+                  <?php endwhile; endif; wp_reset_postdata(); ?>
                </div>
             </div>
+         </div>
 
+         <div class="side-posts col-md-4 hidden-xs hidden-sm">
+            <h3>Categorias</h3>
+            <ul class="link-count">
+               <?php
+                  foreach ($all_terms as $key => $term) { ?>
+                     <li><span><a href="<?php echo home_url('/category') . $term->slug ?>"><?php $term->name ?></a></span></li>
+                  <?php }
+                ?>
+            </ul>
+
+            <h3>Recomendado</h3>
+
+            <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>6, 'category_name'=>$post_terms[0]->slug, 'offset'=>4, 'orderby'=>'rand'));
+            if($loop->have_posts()):while($loop->have_posts()):$loop->the_post(); ?>
+
+            <a href="<?php the_permalink(); ?>">
+               <div class="row">
+                  <div class="col-md-5">
+                     <?php
+                        if(get_the_post_thumbnail()): 
+                           the_post_thumbnail( 'full', array('class'=>'img-responsive') );
+                        else: 
+                           echo '<img src="'.get_stylesheet_directory_uri().'/blog/assets/default-image.jpg" class="img-responsive">';
+                        endif;
+                     ?>
+                  </div>
+                  <div class="col-md-7">
+                     <h4><?php the_title(); ?></h4>
+                     <p class="read-more">ler mais...</p>
+                  </div>
+               </div>
+            </a>
+
+            <?php endwhile; endif; wp_reset_postdata(); ?>
          </div>
 
       </div>
