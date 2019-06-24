@@ -46,6 +46,15 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 
+///////////////////////////
+// Blog Image Sizes
+
+add_image_size( 'blog_thumbnail_category', 230, 130, true );
+add_image_size( 'blog_thumbnail', 750, 422, true );
+
+
+
+
 
 
 
@@ -455,3 +464,9 @@ function load_variation_settings_fields( $variations ) {
 /**********************
 *** Fim custom fields variations.
 ***********/
+
+
+
+
+///////////////////////
+// Blog Loop
