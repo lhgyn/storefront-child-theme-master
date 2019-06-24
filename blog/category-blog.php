@@ -1,25 +1,20 @@
+<?php 
+
+   $post_terms = get_the_terms( get_the_ID(), 'category');
+   $all_terms = get_terms('category');
+
+?>
 
 <div class="blog-flexible">
 
-<?php
 
-   $categories = [
-      'saude',
-      'boa-forma',
-      'dietas',
-      'fitness',
-      'nutricao'
-   ];
-
-foreach ($categories as $key => $cat) : ?>
-
-   <section class="blog-category container section-main bg-white">
+   <section class="blog-category container">
       <div class="row">
          <div class="col-md-8">
             <div class="row">
                <div class="col-xs-6 col-sm-8">
                   <h2>
-                     <?=$cat?>            <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
+                     <?= single_cat_title(); ?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
                   </h2>
                </div>
                <div class="col-xs-6 col-sm-4 text-right">
@@ -27,30 +22,29 @@ foreach ($categories as $key => $cat) : ?>
                </div>
             </div>
 
-            <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>1, 'category_name'=>$cat));
-            if($loop->have_posts()):while($loop->have_posts()):$loop->the_post(); ?>
-            <div class="feature-post">
-               <div class="post-details">
-                  <a href="<?php the_permalink(); ?>">                     
-                     <?php
-                        if(get_the_post_thumbnail()): 
-                           the_post_thumbnail( 'full', array('class'=>'img-responsive') );
-                        else: 
-                           echo '<img src="'.get_stylesheet_directory_uri().'/blog/assets/default-image.jpg" class="img-responsive">';
-                        endif;
-                     ?>
-                     <div class="main-feature-excerpt">
-                        <h3><?php the_title(); ?></h3>
-                        <p class="feature-excerpt"><?php the_excerpt(); ?></p>
-                     </div>
-                  </a>
+            <?php 
+            $count = 1;
+            if(have_posts()):while(have_posts()):the_post(); ?>
+               <?php if($count==1): ?>
+               <div class="feature-post">
+                  <div class="post-details">
+                     <a href="<?php the_permalink(); ?>">                     
+                        <?php
+                           if(get_the_post_thumbnail()): 
+                              the_post_thumbnail( 'full', array('class'=>'img-responsive') );
+                           else: 
+                              echo '<img src="'.get_stylesheet_directory_uri().'/blog/assets/default-image.jpg" class="img-responsive">';
+                           endif;
+                        ?>
+                        <div class="main-feature-excerpt">
+                           <h3><?php the_title(); ?></h3>
+                           <p class="feature-excerpt"><?php the_excerpt(); ?></p>
+                        </div>
+                     </a>
+                  </div>
                </div>
-            </div>
-            <?php endwhile; endif; wp_reset_postdata(); ?>
-
-            <div class="row older-posts">
-               <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>3, 'category_name'=>$cat, 'offset'=>1));
-               if($loop->have_posts()):while($loop->have_posts()):$loop->the_post(); ?>
+               <div class="row older-posts">
+               <?php else: ?>
                <div class="other-posts col-sm-4">
                   <a href="<?php the_permalink() ?>">
                      <div class="row older-posts-mobile">
@@ -70,15 +64,23 @@ foreach ($categories as $key => $cat) : ?>
                      </div>
                   </a>
                </div>
-               <?php endwhile; endif; wp_reset_postdata(); ?>
+               <?php endif; ?>
+               <?php $count++; endwhile; endif; ?>
             </div>
          </div>
 
          <div class="side-posts col-md-4 hidden-xs hidden-sm">
-            <h3>Recomendado</h3>
+            <h3>Categorias</h3>
+            <ul class="link-count">
+               <?php
+                  foreach ($all_terms as $key => $term) { ?>
+                     <li><span><a href="<?php echo home_url('/category/') . $term->slug ?>"><?php echo $term->name ?></a></span></li>
+                  <?php }
+                ?>
+            </ul>
 
-            <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>6, 'category_name'=>$cat, 'offset'=>4, 'orderby'=>'rand'));
-            if($loop->have_posts()):while($loop->have_posts()):$loop->the_post(); ?>
+            <h3>Recomendado</h3>
+            <?php  if(have_posts()):while(have_posts()):the_post(); ?>
 
             <a href="<?php the_permalink(); ?>">
                <div class="row">
@@ -98,12 +100,11 @@ foreach ($categories as $key => $cat) : ?>
                </div>
             </a>
 
-            <?php endwhile; endif; wp_reset_postdata(); ?>
+            <?php endwhile; endif; ?>
 
          </div>
       </div>
    </section>
 
-<?php endforeach; ?>
    
 </div>
