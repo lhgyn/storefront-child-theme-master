@@ -127,9 +127,20 @@
     object-position: 50% 50%;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
     .row.older-posts .other-posts.col-sm-4 > a > .row.older-posts-mobile img {
         max-height: 160px;
         min-height: 160px;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .row.older-posts .other-posts.col-sm-4 > a > .row.older-posts-mobile img {
+        max-height: 90px;
+        min-height: 90px;
+        object-fit: cover;
+        object-position: 50% 50%;
     }
 }

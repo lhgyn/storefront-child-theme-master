@@ -1,4 +1,4 @@
-.blog-category img.img-responsive.wp-post-image {
+.blog-category  article > img.img-responsive {
     min-width: 100%;
     max-height:250px;
     object-fit: cover;
