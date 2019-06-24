@@ -8,7 +8,6 @@
 
 <div class="blog-flexible">
 
-
    <section class="blog-category category-page container section-main">
       <div class="row">
          <div class="col-md-8">
@@ -17,9 +16,6 @@
                   <h2 class="title-breadcrumb">
                      <a href="<?= home_url('/blog'); ?>">Blog</a> <i class="fa fa-angle-right"></i> <a href="<?= home_url('/category/' . $post_terms[0]->slug); ?>"><?= $post_terms[0]->name ?></a> <span class="hidden-xs">
                   </h2>
-               </div>
-               <div class="col-xs-6 col-sm-4 text-right">
-                  <a href="<?php echo home_url().'/category/saude' ?>" class="read-more">ver mais</a>
                </div>
             </div>
 
