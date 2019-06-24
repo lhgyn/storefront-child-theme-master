@@ -9,13 +9,13 @@
 <div class="blog-flexible">
 
 
-   <section class="blog-category container">
+   <section class="blog-category container section-main">
       <div class="row">
          <div class="col-md-8">
             <div class="row">
                <div class="col-xs-6 col-sm-8">
                   <h2>
-                     <?php echo single_cat_title(); ?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
+                     <a href="<?= home_url('/blog'); ?>">Blog</a> &nbsp;/&nbsp; <?php echo single_cat_title(); ?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
                   </h2>
                </div>
                <div class="col-xs-6 col-sm-4 text-right">

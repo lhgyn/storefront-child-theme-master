@@ -15,7 +15,7 @@
             <div class="row">
                <div class="col-xs-6 col-sm-8">
                   <h2>
-                     <?= $post_terms[0]->name ?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
+                     <a href="<?= home_url('/blog'); ?>">Blog</a> &nbsp;/&nbsp; <?= $post_terms[0]->name ?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
                   </h2>
                </div>
                <div class="col-xs-6 col-sm-4 text-right">
@@ -78,7 +78,7 @@
             <ul class="link-count">
                <?php
                   foreach ($all_terms as $key => $term) { ?>
-                     <li><span><a href="<?php echo home_url('/category') . $term->slug ?>"><?php echo $term->name ?></a></span></li>
+                     <li><span><a href="<?php echo home_url('/category/') . $term->slug ?>"><?php echo $term->name ?></a></span></li>
                   <?php }
                 ?>
             </ul>
