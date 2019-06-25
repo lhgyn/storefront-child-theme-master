@@ -29,7 +29,7 @@ foreach ($categories as $key => $cat) : ?>
                      <?=$cat->slug?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
                   </h2>
                </div>
-               <?php if($cat->count > 10): ?>
+               <?php if($cat->count > 1): ?>
                   <div class="col-xs-6 col-sm-4 text-right">
                      <a href="<?php echo home_url() . '/category/' . $cat->slug ?>" class="read-more">ver mais</a>
                   </div>
@@ -42,9 +42,9 @@ foreach ($categories as $key => $cat) : ?>
                   <a href="<?php the_permalink(); ?>">                     
                      <?php
                         if(get_the_post_thumbnail()): 
-                           the_post_thumbnail( 'full', array('class'=>'img-responsive') );
+                           the_post_thumbnail( 'large', array('class'=>'img-responsive') );
                         else: 
-                           echo '<img src="'.get_stylesheet_directory_uri().'/blog/assets/default-image.jpg" class="img-responsive">';
+                           echo '<img src="'.get_stylesheet_directory_uri().'/blog/assets/default-image.jpg" class="img-responsive" style="min-width:100%">';
                         endif;
                      ?>
                      <div class="main-feature-excerpt">
