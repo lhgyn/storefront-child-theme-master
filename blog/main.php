@@ -3,23 +3,30 @@
 
 <?php
 
-   $categories = [
-      'saude',
-      'boa-forma',
-      'dietas',
-      'fitness',
-      'nutricao'
-   ];
+   $categories = get_terms('category');
+   $total_posts = 0;
+   foreach ($categories as $key => $value) {
+      $total_posts+= $value->count;
+   }
+
+   
+
+if( $total_posts != 0 ):
 
 foreach ($categories as $key => $cat) : ?>
 
    <section class="blog-category container section-main bg-white">
       <div class="row">
+         <!-- //////////////////////////
+         // BLOCO PRINCIPAL - LISTAGEM POR CATEGORIAS -->
          <div class="col-md-8">
+         <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>1, 'category_name'=>$cat->slug));
+            if($loop->have_posts()) : ?>
+
             <div class="row">
                <div class="col-xs-6 col-sm-8">
                   <h2>
-                     <?=$cat?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
+                     <?=$cat->slug?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
                   </h2>
                </div>
                <div class="col-xs-6 col-sm-4 text-right">
@@ -27,8 +34,7 @@ foreach ($categories as $key => $cat) : ?>
                </div>
             </div>
 
-            <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>1, 'category_name'=>$cat));
-            if($loop->have_posts()):while($loop->have_posts()):$loop->the_post(); ?>
+            <?php while($loop->have_posts()):$loop->the_post(); ?>
             <div class="feature-post">
                <div class="post-details">
                   <a href="<?php the_permalink(); ?>">                     
@@ -48,9 +54,10 @@ foreach ($categories as $key => $cat) : ?>
             </div>
             <?php endwhile; endif; wp_reset_postdata(); ?>
 
+            <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>3, 'category_name'=>$cat->slug, 'offset'=>1));
+               if($loop->have_posts()): ?>
             <div class="row older-posts">
-               <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>3, 'category_name'=>$cat, 'offset'=>1));
-               if($loop->have_posts()):while($loop->have_posts()):$loop->the_post(); ?>
+               <?php while($loop->have_posts()):$loop->the_post(); ?>
                <div class="other-posts col-sm-4">
                   <a href="<?php the_permalink() ?>">
                      <div class="row older-posts-mobile">
@@ -70,15 +77,22 @@ foreach ($categories as $key => $cat) : ?>
                      </div>
                   </a>
                </div>
-               <?php endwhile; endif; wp_reset_postdata(); ?>
+               <?php endwhile; ?>
             </div>
+            <?php endif; wp_reset_postdata(); ?>            
          </div>
+         <!-- // FIM DO BLOCO PRINCIPAL
+         //////////////////////////////////// -->
 
+         <!-- ///////////////////////////////////
+         // SIDEBAR -->
          <div class="side-posts col-md-4 hidden-xs hidden-sm">
+            <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>6, 'category_name'=>$cat->slug, 'offset'=>4, 'orderby'=>'rand'));
+            if($loop->have_posts()): ?>
+
             <h3>Recomendado</h3>
 
-            <?php $loop = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>6, 'category_name'=>$cat, 'offset'=>4, 'orderby'=>'rand'));
-            if($loop->have_posts()):while($loop->have_posts()):$loop->the_post(); ?>
+            <?php while($loop->have_posts()):$loop->the_post(); ?>
 
             <a href="<?php the_permalink(); ?>">
                <div class="row">
@@ -104,6 +118,28 @@ foreach ($categories as $key => $cat) : ?>
       </div>
    </section>
 
-<?php endforeach; ?>
+<?php 
+endforeach;
+else: ?>
+
+<section class="container section-main">
+   <div class="row">
+      <div class="col-md-12">
+         <header>
+            <h1 class="page-title" style="font-size: 36px; text-align: center;"><?php esc_html_e( 'Oops! Não existem publicações.', 'storefront' ); ?></h1>
+         </header><!-- .page-header -->
+         <p style="text-align: center;">
+            <?php esc_html_e( 'Nenhum artigo foi publicado!.', 'storefront' ); ?>
+         </p>
+      </div>
+   </div>
+</section>
+
+<?php
+endif;
+ ?>
    
 </div>
+
+
+<?php //echo $total_posts; //print_r($categories); ?>
