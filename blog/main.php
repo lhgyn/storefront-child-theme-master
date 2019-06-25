@@ -126,13 +126,17 @@ else: ?>
 
 <section class="container section-main">
    <div class="row">
-      <div class="col-md-12">
-         <header>
-            <h1 class="page-title" style="font-size: 36px; text-align: center;"><?php esc_html_e( 'Oops! Não existem publicações.', 'storefront' ); ?></h1>
-         </header><!-- .page-header -->
-         <p style="text-align: center;">
-            <?php esc_html_e( 'Nenhum artigo foi publicado!.', 'storefront' ); ?>
-         </p>
+      <div id="primary">
+         <main id="main" class="page-error">
+            <div class="col-md-12" style="margin-top: 160px;">
+               <header>
+                  <h1 class="page-title" style="font-size: 36px; text-align: center;"><?php esc_html_e( 'Oops! Não existem publicações.', 'storefront' ); ?></h1>
+               </header><!-- .page-header -->
+               <p style="text-align: center;">
+                  <?php esc_html_e( 'Nenhum artigo foi publicado!.', 'storefront' ); ?>
+               </p>
+            </div>
+         </main>
       </div>
    </div>
 </section>
