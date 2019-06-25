@@ -128,12 +128,13 @@ else: ?>
    <div class="row">
       <div id="primary">
          <main id="main" class="page-error">
-            <div class="col-md-12" style="margin-top: 160px;">
+            <div class="col-md-12">
                <header>
-                  <h1 class="page-title" style="font-size: 36px; text-align: center;"><?php esc_html_e( 'Oops! Não existem publicações.', 'storefront' ); ?></h1>
-               </header><!-- .page-header -->
+                  <h1 class="page-title page-title-error-blog"><?php esc_html_e( 'Oops! Não existem publicações.', 'storefront' ); ?></h1>
+               </header>
+               <!-- .page-header -->
                <p style="text-align: center;">
-                  <?php esc_html_e( 'Nenhum artigo foi publicado!.', 'storefront' ); ?>
+                  <?php esc_html_e( 'Nenhum artigo foi publicado!', 'storefront' ); ?>
                </p>
             </div>
          </main>
