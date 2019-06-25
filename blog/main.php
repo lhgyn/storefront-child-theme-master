@@ -29,9 +29,11 @@ foreach ($categories as $key => $cat) : ?>
                      <?=$cat->slug?> <span class="hidden-xs"> - </span><span class="latest">Últimos Artigos</span>
                   </h2>
                </div>
-               <div class="col-xs-6 col-sm-4 text-right">
-                  <a href="<?php echo home_url().'/category/saude' ?>" class="read-more">ver mais</a>
-               </div>
+               <?php if($cat->count > 10): ?>
+                  <div class="col-xs-6 col-sm-4 text-right">
+                     <a href="<?php echo home_url() . '/category/' . $cat->slug ?>" class="read-more">ver mais</a>
+                  </div>
+               <?php endif; ?>
             </div>
 
             <?php while($loop->have_posts()):$loop->the_post(); ?>
