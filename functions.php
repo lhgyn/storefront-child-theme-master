@@ -50,7 +50,7 @@ if( function_exists('acf_add_options_page') ) {
 // Blog Image Sizes
 
 add_image_size( 'blog_thumbnail_category', 230, 130, true );
-add_image_size( 'blog_thumbnail', 750, 422, true );
+add_image_size( 'blog_thumbnail', 600, 350, true );
 
 
 
