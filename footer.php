@@ -108,14 +108,6 @@ if(is_page(13)):
   });
 </script>
 
-
-<script>
-  jQuery(document).ready(function($){
-    
-  })
-</script>
-
-
 <?php endif; ?>
 
 <?php do_action( 'storefront_after_footer' ); ?>

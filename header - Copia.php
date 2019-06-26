@@ -16,18 +16,28 @@
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+    <?php wp_head(); ?>
 
     <?php if(is_page('checkout')): ?>
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- boostrap css e js -->
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/bootstrap/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/bootstrap/bootstrap-grid.min.css" media="screen" rel="stylesheet" type="text/css">
     <?php endif; ?>
 
-    <?php wp_head(); ?>    
-    <!-- <link rel="stylesheet" href=<?php //echo get_stylesheet_directory_uri(); ?>/assets/css/__development.css> -->
-    <link rel="stylesheet" href=<?php echo get_stylesheet_directory_uri(); ?>/assets/css/__all_styles_production.min.css>
-    <?php get_template_part( 'style', 'custom' ); ?>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Bibliteca landPage -->
+    <script src=<?php echo get_stylesheet_directory_uri(); ?>/assets/js/jquery.js></script>
     <script src=<?php echo get_stylesheet_directory_uri(); ?>/assets/js/main.js></script>
+
+    <link rel="stylesheet" href=<?php echo get_stylesheet_directory_uri(); ?>/assets/css/main.css>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400" rel="stylesheet">
+
+    <link rel="stylesheet" href=<?php echo get_stylesheet_directory_uri(); ?>/assets/css/animate.css></script>
+    <script src=<?php echo get_stylesheet_directory_uri(); ?>/assets/js/bootstrap-notify.min.js></script>
+    <?php get_template_part( 'style', 'custom' ); ?>
+    <!-- Fim da Biblioteca do site -->
 
    
     <!-- //////////////////////////////////////////////////////////////////
