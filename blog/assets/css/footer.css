@@ -18,9 +18,13 @@
     color: #fff;
 }
 
-.footer-v2 .menu-links a:hover {
+.footer-v2 .menu-links a:hover,
+.footer-v2 .menu-links a:active,
+.footer-v2 .menu-links a:focus,
+.footer-v2 .menu-links a:visited {
     opacity: .7;
     text-decoration: none;
+    outline: none;
 }
 
 .footer-v2 .title-footer {
