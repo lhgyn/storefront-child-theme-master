@@ -13037,3 +13037,12 @@ a:focus, button:focus, input:focus, textarea:focus {
 	justify-content: center;
 
 }
+
+footer > div.row > div.col-12.text-center {
+    max-height: initial!important;
+}
+
+footer > div.row {
+    height: auto!important;
+    position: relative!important;
+}

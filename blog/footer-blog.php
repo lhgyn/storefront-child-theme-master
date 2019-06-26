@@ -1,84 +1,23 @@
-      <footer class="footer-v2">
-         <div class="menu">
-            <div class="container">
-               <div class="row menu-links">
-                  <div class="col-xs-12 col-sm-6 col-md-3">
-                     <h4 class="title-footer">PHENATRIM</h4>
-                     <ul>
-                        <li class="active menu-footer-v2"><a href="<?php echo get_site_url(); ?>">Home</a></li>
-                        <li class="menu-footer-v2"><a href="<?php echo get_site_url(); ?>/blog">Blog</a></li>
-                        <li class="menu-footer-v2"><a href="<?php echo get_site_url(); ?>/sobre-nos">Sobre Nós</a></li>
-                     </ul>
-                  </div>
-                  <div class="col-xs-12 col-sm-6 col-md-3">
-                     <h4 class="title-footer">INFORMAÇÕES</h4>
-                     <ul>
-                        <li class="menu-footer-v2"><a href="<?php echo get_site_url(); ?>/termos-condicoes">Termos  &amp; Condições</a></li>
-                        <li class="menu-footer-v2"><a href="<?php echo get_site_url(); ?>/politica-privacidade">Política de Privacidade</a></li>
-                        <li class="menu-footer-v2"><a href="<?php echo get_site_url(); ?>/garantia">Política de Reembolso</a></li>
-                     </ul>
-                  </div>
-                  <div class="col-xs-12 col-sm-6 col-md-3">
-                     <h4 class="title-footer">CONTATE-NOS</h4>
-                     <ul>
-                        <li class="menu-footer-v2"><a href="tel:556236392978">(62) 3639-2978</a></li>
-                        <li class="menu-footer-v2"><a href="mailto:sac@phenatrim.com.br">sac@phenatrim.com.br</a></li>
-                        <li class="menu-footer-v2"><a href="<?php echo get_site_url(); ?>/contato">Atendimento ao Cliente</a></li>
-                     </ul>
-                  </div>
-                  <div class="col-xs-12 col-sm-6 col-md-3">
-                     <h4 class="title-footer">ÚLTIMAS PUBLICAÇÕES</h4>
-                     
-                     <?php $latest = new WP_Query(['post_type'=>'post', 'posts_per_page'=>3]); ?>
-
-                     <?php if($latest->have_posts()): ?>
-                        <?php while($latest->have_posts()): $latest->the_post(); ?>
-                           <a href="<?php echo get_permalink(); ?>" class="list-ultimos-posts-footer">
-                              <figure>
-                                <?php
-                                   if(get_the_post_thumbnail()){
-                                      the_post_thumbnail( 'thumbnail', ['class'=>'img-responsive img-post-footer-v2', 'style'=>'width:50px;height:50px;object-fit:cover;'] );
-                                   }else{
-                                      echo '<img src="'.get_stylesheet_directory_uri().'/blog/assets/default-image.jpg" class="img-responsive img-post-footer-v2" style="width:50px;height:50px;object-fit:cover;">';
-                                   }
-                                ?>
-                              </figure>
-                              <div class="info-posts-footer">
-                                 <h6><?php echo mb_strimwidth(get_the_title(), 0, 16, '...'); ?></h6>
-                                 <p><?php echo mb_strimwidth(get_the_excerpt(), 0, 14, '...'); ?></p>
-                              </div>
-                           </a>
-                        <?php endwhile; ?>
-                     <?php endif; wp_reset_postdata(); ?>
-                  </div>
-
-                  <div class="row row-logo-footer-v2">
-                     <div class="img-logo-footer-v2 col-sm-12 col-md-12">
-                        <div class="col-md-2">
-                           <?php echo get_custom_logo(); ?>
-                        </div>
-                        <div class="content-copy col-md-10">
-                           <p class="copy-cnpj">N1 SUPPLEMENTS COMÉRCIO E DISTRIBUIÇÃO LTDA, CNPJ: 15.301.011/0001-89</p>
-                           <p class="copy-year">&copy; <?php echo date("Y")." ".get_bloginfo(); ?>. Todos direitos reservados.</p>
-                        </div>
-                     </div>                     
-                  </div>
-                  <div class="row content-bottom-footer-v2">
-                     <div class="copy-info col-xs-12 col-sm-12 col-md-9 col-lg-10">
-                        <p>Phenatrim é um suplemento dietético que não se destina a diagnosticar, tratar, curar ou previnir qualquer doença.*</p>
-                        <p>Os resultados podem variar de pessoa para pessoa.*</p>
-                     </div>
-                     <div class="content-deadline hidden-xs hidden-sm col-md-3 col-lg-2">
-                        <h4 class="title-footer">PRAZO DE ENTREGA</h4>
-                        <p class="deadline">7 à 15 dias úteis</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-
-      <?php wp_footer();  ?>
-      
-   </body>
-</html>
+<footer class="content-info" style="padding-bottom: 0;" role="contentinfo">
+  <div class="sampleClass"></div>
+  <div class="container text-center" style="padding: 15px 0 20px">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <ul id="menu-footer-portugues" class="list-inline">
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8042 current_page_item menu-item-8548 active"><a title="Home" class="page-scroll" href="<?php echo get_site_url(); ?>">Home</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8042 current_page_item menu-item-8548 active"><a title="Home" class="page-scroll" href="<?php echo get_site_url(); ?>/blog/">Blog</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8549"><a title="Termos e Condições" class="page-scroll" href="<?php echo get_site_url(); ?>/termos-condicoes/">Termos &amp; Condições</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8550"><a title="Política de Privacidade" class="page-scroll" href="<?php echo get_site_url(); ?>/politica-privacidade/">Política de Privacidade</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8551"><a title="Garantia" class="page-scroll" href="<?php echo get_site_url(); ?>/garantia/">Política de Reembolso</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8552"><a title="Sobre Nós" class="page-scroll" href="<?php echo get_site_url(); ?>/sobre-nos/">Sobre Nós</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8553"><a title="Atendimento ao Cliente" class="page-scroll" href="<?php echo get_site_url(); ?>/contato/">Atendimento ao Cliente</a></li>
+         </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="background: #d8d8d8;">
+    <div class="col-12 text-center" style="color: #848484; font-size: 13px; padding: 10px 20px;
+    line-height: 15px;">N1 SUPPLEMENTS COMÉRCIO E DISTRIBUIÇÃO LTDA, CNPJ: 15.301.011/0001-89 | &copy; <?php echo date("Y")." ".get_bloginfo(); ?>. Todos direitos reservados.
+    </div>
+  </div>
+</footer>
