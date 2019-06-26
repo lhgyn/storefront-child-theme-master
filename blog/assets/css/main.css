@@ -4,9 +4,13 @@
     border-bottom: none;
 }
 
+.blog-category.section-main {
+    margin-top: 0;
+}
 
 .blog-category:first-child {
     padding-top: 80px!important;
+    margin-top: 70px;
 }
 
 .blog-category:after {
