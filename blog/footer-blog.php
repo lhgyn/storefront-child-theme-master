@@ -21,8 +21,8 @@
                   <div class="col-xs-12 col-sm-6 col-md-3">
                      <h4 class="title-footer">CONTATE-NOS</h4>
                      <ul>
-                        <li class="menu-footer-v2">(62) 3639-2978</li>
-                        <li class="menu-footer-v2">sac@phenatrim.com.br</li>
+                        <li class="menu-footer-v2"><a href="tel:556236392978">(62) 3639-2978</a></li>
+                        <li class="menu-footer-v2"><a href="mailto:sac@phenatrim.com.br">sac@phenatrim.com.br</a></li>
                         <li class="menu-footer-v2"><a href="<?php echo get_site_url(); ?>/contato">Atendimento ao Cliente</a></li>
                      </ul>
                   </div>
@@ -33,7 +33,7 @@
 
                      <?php if($latest->have_posts()): ?>
                         <?php while($latest->have_posts()): $latest->the_post(); ?>
-                           <div class="list-ultimos-posts-footer">
+                           <a href="<?php echo get_permalink(); ?>" class="list-ultimos-posts-footer">
                               <figure>
                                 <?php
                                    if(get_the_post_thumbnail()){
@@ -47,7 +47,7 @@
                                  <h6><?php echo mb_strimwidth(get_the_title(), 0, 16, '...'); ?></h6>
                                  <p><?php echo mb_strimwidth(get_the_excerpt(), 0, 14, '...'); ?></p>
                               </div>
-                           </div>
+                           </a>
                         <?php endwhile; ?>
                      <?php endif; wp_reset_postdata(); ?>
                   </div>

@@ -18,6 +18,11 @@
     color: #fff;
 }
 
+.footer-v2 .menu-links a:hover {
+    opacity: .7;
+    text-decoration: none;
+}
+
 .footer-v2 .title-footer {
     color: #fff;
     opacity: 0.4;
