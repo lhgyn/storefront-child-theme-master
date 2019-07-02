@@ -67,6 +67,20 @@
       }
     ?>
 
+    <!-- //////////////////////////////////////////////////////////////////
+    ////////////// TABOOLA
+    ////////////////////////////////////// -->
+
+    <!-- Taboola Pixel Code -->
+    <script>
+        _tfa.push({notify: 'event', name: 'start_checkout', id: 1206534});
+    </script>
+    <noscript>
+        <img src='//trc.taboola.com/1206534/log/3/unip?en=start_checkout'
+            width='0' height='0' style='display:none'/>
+    </noscript>
+    <!-- End of Taboola Pixel Code -->
+
   </head>
 
   <body <?php body_class(); ?>>

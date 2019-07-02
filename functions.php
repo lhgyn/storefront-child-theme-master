@@ -174,22 +174,22 @@ add_action( 'woocommerce_checkout_billing', 'woocommerce_checkout_payment', 5 );
 
 add_action( 'wp_footer', 'woocommerce_add_gift_box' );
 function woocommerce_add_gift_box() {
-    if (is_checkout()) {
+    //if (is_checkout()) {
     ?>
-    <script type="text/javascript">
-    jQuery( document ).ready(function( $ ) {
-        $('#add_gift_box').click(function(){
-            jQuery('body').trigger('update_checkout');
-        });
+    <!--<script type="text/javascript">
+    //jQuery( document ).ready(function( $ ) {
+        //$('#add_gift_box').click(function(){
+            //jQuery('body').trigger('update_checkout');
+        //});
 
-        var taxa_garantia = "<?php echo number_format(get_field('garantia_custo_extra', 'option'), 2, '.', ','); ?>"; //pega o valor do custo extra no custom fields - customizações do thema 
-        var parcelas = $('#pagarme-installments option:last').val();
-        var calc = ( parseFloat(taxa_garantia) / parcelas ); calc = calc.toFixed(2).replace('.', ',');
-        $('#extra-cost-label').html('Proteja sua entrega por apenas '+ parcelas +'x de R$ '+ calc);
-    });
-    </script>
+        //var taxa_garantia = "<?php //echo number_format(get_field('garantia_custo_extra', 'option'), 2, '.', ','); ?>"; //pega o valor do custo extra no custom fields - customizações do thema 
+        //var parcelas = $('#pagarme-installments option:last').val();
+        //var calc = ( parseFloat(taxa_garantia) / parcelas ); calc = calc.toFixed(2).replace('.', ',');
+        //$('#extra-cost-label').html('Proteja sua entrega por apenas '+ parcelas +'x de R$ '+ calc);
+    //});
+    </script>-->
     <?php
-    }
+    //}
 }
 
 add_action( 'woocommerce_cart_calculate_fees', 'woo_add_cart_fee' );
