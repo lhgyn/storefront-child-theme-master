@@ -13,7 +13,6 @@
  * the readme will list any important changes.
  *
  * @see         https://docs.woocommerce.com/document/template-structure/
- * @author      WooThemes
  * @package     WooCommerce/Templates
  * @version     2.6.0
  */
@@ -22,7 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-
 
 <p><?php
 	/* translators: 1: user display name 2: logout url */
@@ -41,7 +39,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		esc_url( wc_get_endpoint_url( 'edit-account' ) )
 	);
 ?></p>
-
 
 <?php
 	/**
@@ -66,9 +63,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 	do_action( 'woocommerce_after_my_account' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
-?>
-
-
-		</div>
-	</div>
-</section>
