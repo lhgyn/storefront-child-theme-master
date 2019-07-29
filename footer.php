@@ -1,5 +1,5 @@
 <?php
-if(is_page(13)):
+if(is_page('checkout')):
 ?> 
 
 <footer class="content-info" role="contentinfo">
