@@ -11328,7 +11328,7 @@ body.admin-bar .banner {
 	background-color: #333;
 	color: white !important;
 }
-body.page-id-13 > #page > div.container {
+body.woocommerce-checkout > #page > div.container {
 	max-width: 100%!important;
 }
 #page > div:nth-child(1) > div > div > ul > li > span:nth-child(1) > h4 {
@@ -12558,8 +12558,8 @@ section.topo-checkout > div > .row.line-icon-mobile {
     padding: 8px 15px!important;
 }
 
-body.page-id-13 > div.container > div,
-body.page-id-13 > div.container > div > div,
+body.woocommerce-checkout > div.container > div,
+body.woocommerce-checkout > div.container > div > div,
 .woocommerce-checkout article > div > div > div > form > div > div.col-md-7 > div > div.col-sm-3,
 #page > div.container > div > div > ul > li {
     padding: 0;
@@ -12822,7 +12822,8 @@ li.payment_method_pagarme-credit-card .payment_box fieldset .form-row {
 }
 
 label[for="shipping_method_0_flat_rate3"]{ position: relative }
-label[for="shipping_method_0_flat_rate3"]::before{	
+label[for="shipping_method_0_flat_rate3"]::before,
+.shipping_method li label::before{	
     content: "";
     position: absolute;
     top: calc(50% - 10px);
