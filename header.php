@@ -22,8 +22,8 @@
     <?php endif; ?>
 
     <?php wp_head(); ?>    
-    <!-- <link rel="stylesheet" href=<?php //echo get_stylesheet_directory_uri(); ?>/assets/css/__development.css> -->
-    <link rel="stylesheet" href=<?php echo get_stylesheet_directory_uri(); ?>/assets/css/__all_styles_production.min.css>
+    <link rel="stylesheet" href=<?php echo get_stylesheet_directory_uri(); ?>/assets/css/__development.css>
+    <!-- <link rel="stylesheet" href=<?php //echo get_stylesheet_directory_uri(); ?>/assets/css/__all_styles_production.min.css> -->
     <?php get_template_part( 'style', 'custom' ); ?>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
