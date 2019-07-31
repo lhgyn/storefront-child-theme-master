@@ -115,6 +115,7 @@ add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 function custom_override_checkout_fields( $fields ) {
      unset($fields['order']['order_comments']);
      unset($fields['billing']['billing_company']);
+     unset($fields['account']['terms']);
 
      return $fields;
 }
@@ -356,6 +357,7 @@ function action_woocommerce_review_order_before_payment(  ) {
             
             var parcelas = $('#pagarme-installments option:last').val(); // pega a maior parcela           
             $('#pagarme-installments option:last').prop('selected',true); // marca a maior parcela como default
+            $('#pagarme-installments option:first').prop('hidden',true); // Esconder o opção zerada
             
             $("label[for='pagarme-card-holder-name']").html("Nome impresso no cartão"); // muda o label  do campo nome do cartão
             $("#billing_address_2_field > label").html("Complemento"); // muda o label do campo endereço 2 p/ Complemento
