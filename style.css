@@ -6,7 +6,7 @@ Author:       	LifeHealth
 Author URI:     http://lifehealth.net.br
 Template:     	storefront
 Description:  	This is a blank child theme for WooThemes StoreFront theme
-Version:      	v1.1.27
+Version:      	v1.1.28
 License:      	GNU General Public License v2 or later
 License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  	storefront
@@ -4301,7 +4301,7 @@ p > object:only-child {
 	width: 100%;
 }
 
-#post-13 > div > div > div {
+.woocommerce-checkout article > div > div > div {
 	padding: 50px;
 	padding-left: 2.5rem;
     padding-right: 2.5rem;
@@ -4309,21 +4309,21 @@ p > object:only-child {
     margin:auto;
 }
 
-#post-13 > div > div > div > div {
+.woocommerce-checkout article > div > div > div > div {
 	display: block !important;
 	width: 100%
 }
 
-#post-13 > div > div > div > div > a {
+.woocommerce-checkout article > div > div > div > div > a {
 	width: 100%;
 }
 
-#post-13 > div > div > div > ul > li{
+.woocommerce-checkout article > div > div > div > ul > li{
 	font-size: 0.7em;
 	display: inline-block;
 }
 
-#post-13 > div > div > div > div > span > a {
+.woocommerce-checkout article > div > div > div > div > span > a {
 	display: block !important;
 	float: none;
 	text-align: center;
@@ -4331,23 +4331,23 @@ p > object:only-child {
 	background-color: #e8e8e8;
     color: #666666;
     }
-#post-13 > div > div > div > div {
+.woocommerce-checkout article > div > div > div > div {
     background-color: #c9f7b2;
     color: #587549;
 }
 
-#post-13 > div > div > div > section.woocommerce-order-details > table, #post-13 > div > div > div > section.woocommerce-customer-details > section {
+.woocommerce-checkout article > div > div > div > section.woocommerce-order-details > table, .woocommerce-checkout article > div > div > div > section.woocommerce-customer-details > section {
 		font-size: 0.7em;
 
 }
 
-#post-13 > div > div > div > p {
+.woocommerce-checkout article > div > div > div > p {
     font-size: 1.4rem;
     color: #5fcc29;
 
 }
 
-#post-13 > div > div > div > ul {
+.woocommerce-checkout article > div > div > div > ul {
 	margin: 0
 }
 
