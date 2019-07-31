@@ -12821,9 +12821,10 @@ li.payment_method_pagarme-credit-card .payment_box fieldset .form-row {
 	display: none;
 }
 
-label[for="shipping_method_0_flat_rate3"]{ position: relative }
+label[for="shipping_method_0_flat_rate3"],
+#shipping_method.woocommerce-shipping-methods li label { position: relative }
 label[for="shipping_method_0_flat_rate3"]::before,
-#shipping_method li label::before{	
+#shipping_method.woocommerce-shipping-methods li label::before{	
     content: "";
     position: absolute;
     top: calc(50% - 10px);
@@ -12835,7 +12836,7 @@ label[for="shipping_method_0_flat_rate3"]::before,
     background: #fff;
 }
 label[for="shipping_method_0_flat_rate4"]{ position: relative }
-label[for="shipping_method_0_flat_rate4"]::before{	
+label[for="shipping_method_0_flat_rate4"]::before{
     content: "";
     position: absolute;
     top: calc(50% - 10px);
