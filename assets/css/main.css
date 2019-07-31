@@ -12823,7 +12823,7 @@ li.payment_method_pagarme-credit-card .payment_box fieldset .form-row {
 
 label[for="shipping_method_0_flat_rate3"]{ position: relative }
 label[for="shipping_method_0_flat_rate3"]::before,
-.shipping_method li label::before{	
+#shipping_method li label::before{	
     content: "";
     position: absolute;
     top: calc(50% - 10px);
